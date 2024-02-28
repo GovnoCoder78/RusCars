@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rus_car/model/cars.dart';
 
 class GridViewSample extends StatelessWidget {
   final String img;
@@ -25,32 +24,41 @@ class GridViewSample extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: Text(
-              nam,
-              style: const TextStyle(
-                fontSize: 30,
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                nam,
+                style: const TextStyle(
+                  fontSize: 30,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           Expanded(
             flex: 1,
-            child: Text(
-              qpm,
-              style: const TextStyle(
-                fontSize: 30,
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                qpm,
+                style: const TextStyle(
+                  fontSize: 30,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           Expanded(
             flex: 1,
-            child: Text(
-              prc,
-              style: const TextStyle(
-                fontSize: 25,
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                prc,
+                style: const TextStyle(
+                  fontSize: 25,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
         ],
