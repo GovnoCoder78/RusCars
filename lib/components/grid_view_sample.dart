@@ -1,24 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 
 class GridViewSample extends StatelessWidget {
-  final String mig;
-  final String nam;
-  final String qpm;
-  final String prc;
-  final String dsc;
-  final String crt;
-  final String vid;
-  final List img;
-  const GridViewSample({Key? key, required this.mig, required this.nam, required this.qpm, required this.prc, required this.dsc, required this.crt, required this.vid, required this.img}) : super(key: key);
-
+  final int id;
+  const GridViewSample({Key? key, required this.id}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: Colors.black38,
-          borderRadius: BorderRadius.circular(8)),
       child: Card(
         clipBehavior: Clip.hardEdge,
         child: InkWell(
@@ -28,28 +18,19 @@ class GridViewSample extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
-                  carMainImage: mig,
-                  carName: nam,
-                  carEquipment: qpm,
-                  carPrice: prc,
-                  carDescription: dsc,
-                  carCharacteristics: crt,
-                  carVideo: vid,
-                  carImages: img,
+                  carId: id,
                 ),
               ),
             );
           },
           child: Container(
-            height: 200,
-            alignment: Alignment.centerLeft,
             color: Colors.black12,
             child:Column(
               children: [
                 Expanded(
                   flex: 1,
                   child: Image.network(
-                    mig,
+                    carsList[id].pathPhoto,
                   ),
                 ),
                 Expanded(
@@ -57,7 +38,7 @@ class GridViewSample extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      nam,
+                      carsList[id].name,
                       style: const TextStyle(
                         fontSize: 30,
                       ),
@@ -70,7 +51,7 @@ class GridViewSample extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      qpm,
+                      carsList[id].equipment,
                       style: const TextStyle(
                         fontSize: 30,
                       ),
@@ -83,7 +64,7 @@ class GridViewSample extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      prc,
+                      carsList[id].price,
                       style: const TextStyle(
                         fontSize: 25,
                       ),
