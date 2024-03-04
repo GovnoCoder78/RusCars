@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 
 class CardOfCar extends StatelessWidget {
   final int carId;
@@ -24,8 +25,20 @@ class CardOfCar extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: Image.network(
-                carsList[carId].pathPhoto,
+              child: FlutterCarousel(
+                options: CarouselOptions(
+                  height: 190,
+                ),
+                items: [0,1,2].map((number) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Image.network(
+                          carsList[carId].images[number],
+                        );
+                    },
+                  );
+                },
+                ).toList(),
               ),
             ),
             Expanded(
