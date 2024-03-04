@@ -40,12 +40,12 @@ class HomePage extends StatelessWidget {
         child: Expanded(
           flex: 1,
           child: GridView.builder(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(5),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
                 childAspectRatio: 1 / 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10),
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5),
             itemCount: carsList.length,
             itemBuilder: (BuildContext context, index) {
               return GridViewSample(

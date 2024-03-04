@@ -12,7 +12,6 @@ class GridViewSample extends StatelessWidget {
       child: Card(
         clipBehavior: Clip.hardEdge,
         child: InkWell(
-          splashColor: Colors.blue.withAlpha(30),
           onTap: () {
             Navigator.push(
               context,
@@ -40,7 +39,7 @@ class GridViewSample extends StatelessWidget {
                     child: Text(
                       carsList[id].name,
                       style: const TextStyle(
-                        fontSize: 30,
+                        fontSize: 21,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -53,7 +52,7 @@ class GridViewSample extends StatelessWidget {
                     child: Text(
                       carsList[id].equipment,
                       style: const TextStyle(
-                        fontSize: 30,
+                        fontSize: 21,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -66,7 +65,7 @@ class GridViewSample extends StatelessWidget {
                     child: Text(
                       carsList[id].price,
                       style: const TextStyle(
-                        fontSize: 25,
+                        fontSize: 21,
                       ),
                       textAlign: TextAlign.center,
                     ),
