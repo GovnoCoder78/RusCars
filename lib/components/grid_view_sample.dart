@@ -30,7 +30,7 @@ class GridViewSample extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Image.network(
-                    carsList[id].pathPhoto,
+                    carsList[id].images[0],
                   ),
                 ),
                 Expanded(

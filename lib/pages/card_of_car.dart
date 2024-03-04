@@ -29,7 +29,7 @@ class CardOfCar extends StatelessWidget {
                 options: CarouselOptions(
                   height: 190,
                 ),
-                items: [0,1,2].map((number) {
+                items: [1,2,3].map((number) {
                   return Builder(
                     builder: (BuildContext context) {
                       return Image.network(
