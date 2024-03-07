@@ -33,8 +33,8 @@ class CardOfCar extends StatelessWidget {
                   return Builder(
                     builder: (BuildContext context) {
                       return Image.network(
-                          carsList[carId].images[number],
-                        );
+                        carsList[carId].images[number],
+                      );
                     },
                   );
                 },
@@ -78,6 +78,94 @@ class CardOfCar extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
+              ),
+            ),
+            Expanded(
+              child: Table(
+                border: TableBorder.all(),
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                children: [
+                  TableRow(
+                    children: [
+                      const Text(
+                        'Объем'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[0]
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      const Text(
+                          'Топливо'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[1]
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      const Text(
+                          'Мощность'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[2]
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      const Text(
+                          'Привод'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[3]
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      const Text(
+                          'Коробка'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[4]
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      const Text(
+                          'Разгон'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[5]
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      const Text(
+                          'Тип двигателя'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[6]
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      const Text(
+                          'Расход'
+                      ),
+                      Text(
+                          carsList[carId].characteristics[7]
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],
