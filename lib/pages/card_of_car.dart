@@ -24,10 +24,10 @@ class CardOfCar extends StatelessWidget {
         child:Column(
           children: [
             Expanded(
-              flex: 1,
+              flex: 3,
               child: FlutterCarousel(
                 options: CarouselOptions(
-                  height: 190,
+                  height: 240,
                 ),
                 items: [1,2,3].map((number) {
                   return Builder(
@@ -81,6 +81,7 @@ class CardOfCar extends StatelessWidget {
               ),
             ),
             Expanded(
+              flex: 3,
               child: Table(
                 border: TableBorder.all(),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -88,80 +89,128 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                        'Объем'
+                        ' Объем',
+                        style: TextStyle(
+                          fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[0]
+                          ' ' + carsList[carId].characteristics[0],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
                   TableRow(
                     children: [
                       const Text(
-                          'Топливо'
+                          ' Топливо',
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[1]
+                        ' ' + carsList[carId].characteristics[1],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
                   TableRow(
                     children: [
                       const Text(
-                          'Мощность'
+                          ' Мощность',
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[2]
+                        ' ' + carsList[carId].characteristics[2],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
                   TableRow(
                     children: [
                       const Text(
-                          'Привод'
+                          ' Привод',
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[3]
+                        ' ' + carsList[carId].characteristics[3],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
                   TableRow(
                     children: [
                       const Text(
-                          'Коробка'
+                          ' Коробка',
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[4]
+                        ' ' + carsList[carId].characteristics[4],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
                   TableRow(
                     children: [
                       const Text(
-                          'Разгон'
+                          ' Разгон',
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[5]
+                        ' ' + carsList[carId].characteristics[5],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
                   TableRow(
                     children: [
                       const Text(
-                          'Тип двигателя'
+                          ' Тип двигателя',
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[6]
+                        ' ' + carsList[carId].characteristics[6],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
                   TableRow(
                     children: [
                       const Text(
-                          'Расход'
+                          ' Расход',
+                        style: TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                       Text(
-                          carsList[carId].characteristics[7]
+                        ' ' + carsList[carId].characteristics[7],
+                        style: const TextStyle(
+                            fontSize: 20
+                        ),
                       ),
                     ],
                   ),
