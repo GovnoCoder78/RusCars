@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/components/list_view_sample.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 
@@ -24,7 +25,7 @@ class CardOfCar extends StatelessWidget {
         child:Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 5,
               child: FlutterCarousel(
                 options: CarouselOptions(
                   height: 240,
@@ -48,7 +49,7 @@ class CardOfCar extends StatelessWidget {
                 child: Text(
                   carsList[carId].name,
                   style: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 25,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -61,7 +62,7 @@ class CardOfCar extends StatelessWidget {
                 child: Text(
                   carsList[carId].equipment,
                   style: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 25,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -81,7 +82,18 @@ class CardOfCar extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 2,
+                child: ListView.builder(
+                  itemCount: 1,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListViewSample(
+                      id: carId,
+                    );
+                  },
+                ),
+              ),
+            Expanded(
+              flex: 5,
               child: Table(
                 border: TableBorder.all(),
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -91,11 +103,11 @@ class CardOfCar extends StatelessWidget {
                       const Text(
                         ' Объем',
                         style: TextStyle(
-                          fontSize: 20
+                            fontSize: 20
                         ),
                       ),
                       Text(
-                          ' ' + carsList[carId].characteristics[0],
+                        ' ' + carsList[carId].characteristics[0],
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -105,7 +117,7 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                          ' Топливо',
+                        ' Топливо',
                         style: TextStyle(
                             fontSize: 20
                         ),
@@ -121,7 +133,7 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                          ' Мощность',
+                        ' Мощность',
                         style: TextStyle(
                             fontSize: 20
                         ),
@@ -137,7 +149,7 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                          ' Привод',
+                        ' Привод',
                         style: TextStyle(
                             fontSize: 20
                         ),
@@ -153,7 +165,7 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                          ' Коробка',
+                        ' Коробка',
                         style: TextStyle(
                             fontSize: 20
                         ),
@@ -169,7 +181,7 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                          ' Разгон',
+                        ' Разгон',
                         style: TextStyle(
                             fontSize: 20
                         ),
@@ -185,7 +197,7 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                          ' Тип двигателя',
+                        ' Тип двигателя',
                         style: TextStyle(
                             fontSize: 20
                         ),
@@ -201,7 +213,7 @@ class CardOfCar extends StatelessWidget {
                   TableRow(
                     children: [
                       const Text(
-                          ' Расход',
+                        ' Расход',
                         style: TextStyle(
                             fontSize: 20
                         ),
