@@ -3,8 +3,8 @@ import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 
 class GridViewSample extends StatelessWidget {
-  final int id;
-  const GridViewSample({Key? key, required this.id}) : super(key: key);
+  final int carId;
+  const GridViewSample({Key? key, required this.carId}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +17,7 @@ class GridViewSample extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
-                  carId: id,
+                  id: carId,
                 ),
               ),
             );
@@ -29,7 +29,7 @@ class GridViewSample extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Image.network(
-                    carsList[id].images[0],
+                    carsList[carId].images[0],
                   ),
                 ),
                 Expanded(
@@ -37,7 +37,7 @@ class GridViewSample extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[id].name,
+                      carsList[carId].name,
                       style: const TextStyle(
                         fontSize: 21,
                       ),
@@ -50,7 +50,7 @@ class GridViewSample extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[id].equipment,
+                      carsList[carId].equipment,
                       style: const TextStyle(
                         fontSize: 21,
                       ),
@@ -63,7 +63,7 @@ class GridViewSample extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[id].price,
+                      carsList[carId].price,
                       style: const TextStyle(
                         fontSize: 21,
                       ),

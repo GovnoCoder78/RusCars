@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
             itemCount: carsList.length,
             itemBuilder: (BuildContext context, index) {
               return GridViewSample(
-                id: carsList[index].id,
+                carId: carsList[index].id,
               );
             },
           ),
