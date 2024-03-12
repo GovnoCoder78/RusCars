@@ -32,7 +32,6 @@ dependencies:
     sdk: flutter
 
   flutter_carousel_widget: ^2.2.0
-  youtube_player_flutter: ^9.0.0
   youtube_player_iframe: ^4.0.4
 
   # The following adds the Cupertino Icons font to your application.

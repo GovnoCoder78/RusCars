@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/components/list_view_sample_for_description.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
-// import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class ListViewSampleForCardOfCar extends StatelessWidget {
@@ -11,15 +10,10 @@ class ListViewSampleForCardOfCar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? videoId;
+    videoId = YoutubePlayerController.convertUrlToId(carsList[carId].video);
     final _controller = YoutubePlayerController();
-    _controller.loadVideoById(videoId: "KGD-T3bhFEA");
-    // final YoutubePlayerController controller = YoutubePlayerController(
-    //   initialVideoId: 'PAOAjOR6K_Q',
-    //     flags: const YoutubePlayerFlags(
-    //       mute: false,
-    //       autoPlay: false,
-    //     ),
-    // );
+    _controller.loadVideoById(videoId: videoId.toString());
     return Expanded(
       flex: 1,
       child: SizedBox(
@@ -267,13 +261,10 @@ class ListViewSampleForCardOfCar extends StatelessWidget {
                 ],
               ),
             ),
-        Expanded(
-                flex: 4,
-                child: YoutubePlayer(
-                  controller: _controller, // Controler that we created earlier
-                  aspectRatio: 1 / 1,     // Aspect ratio you want to take in screen
-                ),
-        ),
+            YoutubePlayer(
+              controller: _controller,
+              aspectRatio: 16 / 9,
+            ),
           ],
         ),
       ),
