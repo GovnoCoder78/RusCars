@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(5),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
-                childAspectRatio: 1 / 2,
+                childAspectRatio: 2 / 3,
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5),
             itemCount: carsList.length,

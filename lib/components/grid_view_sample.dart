@@ -27,7 +27,7 @@ class GridViewSample extends StatelessWidget {
             child:Column(
               children: [
                 Expanded(
-                  flex: 1,
+                  flex: 2,
                   child: Image.network(
                     carsList[carId].images[0],
                   ),
