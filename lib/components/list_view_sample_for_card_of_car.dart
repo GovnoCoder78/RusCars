@@ -5,16 +5,22 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/model/youtube.dart';
+bool standardSelected = false;
 
-class ListViewSampleForCardOfCar extends StatelessWidget {
-  final int carId;
-  const ListViewSampleForCardOfCar({super.key, required this.carId});
+class ListViewSampleForCardOfCar extends StatefulWidget {
+  int carId;
+  ListViewSampleForCardOfCar({super.key, required this.carId});
 
   @override
+  State<ListViewSampleForCardOfCar> createState() => _ListViewSampleForCardOfCarState(carId);
+}
+
+class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar> {
+  final int carId;
+  _ListViewSampleForCardOfCarState(this.carId);
+  @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: SizedBox(
+    return SizedBox(
         height: 900,
         child: Column(
           children: [
@@ -38,51 +44,54 @@ class ListViewSampleForCardOfCar extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 11,
-                        child: Text(
-                          carsList[carId].name,
-                          style: const TextStyle(
-                            fontSize: 25,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Text(
+                      carsList[carId].name,
+                      style: const TextStyle(
+                        fontSize: 25,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    Expanded(
-                      flex: 1,
-                        child: IconButton(
-                          tooltip: 'Избранное',
-                          icon: const Icon(Icons.favorite),
-                          onPressed: () {
-                            favoriteCars.add(carsList[carId]);
-                          },
-                        ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: IconButton(
+                      tooltip: 'Избранное',
+                      icon: const Icon(Icons.favorite),
+                      onPressed: () {
+                        favoriteCars.add(carsList[carId]);
+                      },
                     ),
-                    Expanded(
-                      flex: 1,
-                        child: IconButton(
-                          tooltip: 'Корзина',
-                          icon: const Icon(Icons.shopping_cart),
-                          onPressed: () {
-                            carsInCar.add(carsList[carId]);
-                          },
-                        ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: IconButton(
+                      isSelected: standardSelected,
+                      icon: const Icon(Icons.settings_outlined),
+                      selectedIcon: const Icon(Icons.settings),
+                      onPressed: () {
+                        setState(() {
+                          standardSelected = !standardSelected;
+                        });
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
             Expanded(
               flex: 1,
-                child: Text(
-                  carsList[carId].price,
-                  style: const TextStyle(
-                    fontSize: 25,
-                  ),
-                  textAlign: TextAlign.center,
+              child: Text(
+                carsList[carId].price,
+                style: const TextStyle(
+                  fontSize: 25,
                 ),
+                textAlign: TextAlign.center,
               ),
+            ),
             Expanded(
               flex: 2,
               child: ListView.builder(
@@ -285,7 +294,6 @@ class ListViewSampleForCardOfCar extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }
