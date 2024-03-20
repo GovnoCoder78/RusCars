@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/components/list_view_sample_for_description.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
+import 'package:rus_car/model/cart_list.dart';
+import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/model/youtube.dart';
 
 class ListViewSampleForCardOfCar extends StatelessWidget {
@@ -36,21 +38,43 @@ class ListViewSampleForCardOfCar extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  carsList[carId].name,
-                  style: const TextStyle(
-                    fontSize: 25,
-                  ),
-                  textAlign: TextAlign.center,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 11,
+                        child: Text(
+                          carsList[carId].name,
+                          style: const TextStyle(
+                            fontSize: 25,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                        child: IconButton(
+                          tooltip: 'Избранное',
+                          icon: const Icon(Icons.favorite),
+                          onPressed: () {
+                            favoriteCars.add(carsList[carId]);
+                          },
+                        ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                        child: IconButton(
+                          tooltip: 'Корзина',
+                          icon: const Icon(Icons.shopping_cart),
+                          onPressed: () {
+                            carsInCar.add(carsList[carId]);
+                          },
+                        ),
+                    ),
+                  ],
                 ),
               ),
-            ),
             Expanded(
               flex: 1,
-              child: Container(
-                alignment: Alignment.center,
                 child: Text(
                   carsList[carId].price,
                   style: const TextStyle(
@@ -59,7 +83,6 @@ class ListViewSampleForCardOfCar extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-            ),
             Expanded(
               flex: 2,
               child: ListView.builder(

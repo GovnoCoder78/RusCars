@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/components/grid_view_sample.dart';
 import 'package:rus_car/model/cars.dart';
+import 'package:rus_car/pages/cart.dart';
+import 'package:rus_car/pages/favorite.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -46,7 +48,7 @@ class HomePage extends StatelessWidget {
               width: 47,
             ),
             IconButton(
-              tooltip: 'Машины',
+              tooltip: 'Главная',
               icon: const Icon(Icons.car_crash),
               onPressed: () {},
             ),
@@ -60,7 +62,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(
+                    builder: (context) => const Favorite(
                     ),
                   ),
                 );
@@ -76,7 +78,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(
+                    builder: (context) => const Cart(
                     ),
                   ),
                 );
