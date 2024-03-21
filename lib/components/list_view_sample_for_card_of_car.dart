@@ -21,280 +21,287 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 900,
-        child: Column(
-          children: [
-            Expanded(
-              flex: 5,
-              child: FlutterCarousel(
-                options: CarouselOptions(
-                  height: 240,
-                ),
-                items: [1, 2, 3].map((number) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Image.network(
-                        carsList[carId].images[number],
-                      );
-                    },
-                  );
-                },
-                ).toList(),
+      height: 900,
+      child: Column(
+        children: [
+          Expanded(
+            flex: 5,
+            child: FlutterCarousel(
+              options: CarouselOptions(
+                height: 240,
               ),
+              items: [1, 2, 3].map((number) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Image.network(
+                      carsList[carId].images[number],
+                    );
+                  },
+                );
+              },
+              ).toList(),
             ),
-            Expanded(
-              flex: 1,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Text(
-                      carsList[carId].name,
-                      style: const TextStyle(
-                        fontSize: 25,
-                      ),
-                      textAlign: TextAlign.center,
+          ),
+          Expanded(
+            flex: 1,
+            child: Row(
+              children: [
+                const SizedBox(
+                  width: 62,
+                ),
+                Expanded(
+                  flex: 9,
+                  child: Text(
+                    carsList[carId].name,
+                    style: const TextStyle(
+                      fontSize: 25,
                     ),
+                    textAlign: TextAlign.center,
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                      tooltip: 'Избранное',
-                      icon: const Icon(Icons.favorite),
-                      onPressed: () {
+                ),
+                Expanded(
+                  flex: 1,
+                  child: IconButton(
+                    tooltip: 'Избранное',
+                    icon: const Icon(Icons.favorite),
+                    onPressed: () {
+                      if (favoriteCars[carId].id != carsList[carId].id && standardSelected == false) {
                         favoriteCars.add(carsList[carId]);
-                      },
-                    ),
+                      } else if (favoriteCars[carId].id == carsList[carId].id && standardSelected == true) {
+                        
+                      }
+                    },
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                      tooltip: standardSelected.toString(),
-                      isSelected: standardSelected,
-                      icon: const Icon(Icons.car_crash),
-                      selectedIcon: const Icon(Icons.car_crash),
-                      onPressed: () {
-                        setState(() {
-                          standardSelected = !standardSelected;
-                        });
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Text(
-                carsList[carId].price,
-                style: const TextStyle(
-                  fontSize: 25,
                 ),
-                textAlign: TextAlign.center,
+                Expanded(
+                  flex: 1,
+                  child: IconButton(
+                    tooltip: standardSelected.toString(),
+                    isSelected: standardSelected,
+                    icon: const Icon(Icons.shopping_cart),
+                    selectedIcon: const Icon(Icons.shopping_cart),
+                    onPressed: () {
+                      setState(() {
+                        standardSelected = !standardSelected;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Text(
+              carsList[carId].price,
+              style: const TextStyle(
+                fontSize: 25,
               ),
+              textAlign: TextAlign.center,
             ),
-            Expanded(
-              flex: 2,
-              child: ListView.builder(
-                itemCount: 1,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListViewSampleForDescription(
-                    id: carId,
-                  );
-                },
-              ),
+          ),
+          Expanded(
+            flex: 2,
+            child: ListView.builder(
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return ListViewSampleForDescription(
+                  id: carId,
+                );
+              },
             ),
-            Expanded(
-              flex: 5,
-              child: Table(
-                border: TableBorder.all(),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                children: [
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' Объем',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+          ),
+          Expanded(
+            flex: 5,
+            child: Table(
+              border: TableBorder.all(),
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              children: [
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' Объем',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[0],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[0],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child:
-                        Text(
-                          ' Топливо',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child:
+                      Text(
+                        ' Топливо',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[1],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[1],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' Мощность',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' Мощность',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[2],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[2],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' Привод',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' Привод',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[3],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[3],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' Коробка',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' Коробка',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[4],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[4],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' Разгон',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' Разгон',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[5],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[5],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' Тип двигателя',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' Тип двигателя',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[6],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[6],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' Расход',
-                          style: TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                  ],
+                ),
+                TableRow(
+                  children: [
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' Расход',
+                        style: TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          ' ' + carsList[carId].characteristics[7],
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        ' ' + carsList[carId].characteristics[7],
+                        style: const TextStyle(
+                            fontSize: 20
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Video(
-                id: carId
-            ),
-          ],
-        ),
+          ),
+          Video(
+              id: carId
+          ),
+        ],
+      ),
     );
   }
 }
