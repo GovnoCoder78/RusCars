@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/model/favorite_list.dart';
+import 'package:rus_car/components/grid_view_sample.dart';
+import 'package:rus_car/pages/cart.dart';
 
 class Favorite extends StatelessWidget {
   const Favorite({Key? key}) : super(key: key);
@@ -7,25 +10,31 @@ class Favorite extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          carsList[id].name,
-          style: const TextStyle(
+        title: const Text(
+          "Российские автомобили",
+          style: TextStyle(
             fontSize: 30,
           ),
         ),
-        centerTitle: true,
         backgroundColor: Colors.grey,
+        centerTitle: true,
       ),
       body: Container(
         alignment: Alignment.center,
-        color: Colors.black12,
+        color: Colors.black26,
         child: Expanded(
           flex: 1,
-          child: ListView.builder(
-            itemCount: 1,
-            itemBuilder: (BuildContext context, int index) {
-              return ListViewSampleForCardOfCar(
-                carId: id,
+          child: GridView.builder(
+            padding: const EdgeInsets.all(5),
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200,
+                childAspectRatio: 2 / 3,
+                crossAxisSpacing: 5,
+                mainAxisSpacing: 5),
+            itemCount: favoriteCars.length,
+            itemBuilder: (BuildContext context, index) {
+              return GridViewSample(
+                carId: favoriteCars[index].id,
               );
             },
           ),
@@ -41,15 +50,7 @@ class Favorite extends StatelessWidget {
             IconButton(
               tooltip: 'Главная',
               icon: const Icon(Icons.car_crash),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(
-                    ),
-                  ),
-                );
-              },
+              onPressed: () {},
             ),
             const SizedBox(
               width: 70,
