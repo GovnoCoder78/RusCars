@@ -6,6 +6,7 @@ import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/model/youtube.dart';
 bool standardSelected = false;
+Color colorButton = Colors.black;
 
 class ListViewSampleForCardOfCar extends StatefulWidget {
   int carId;
@@ -62,13 +63,24 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                 Expanded(
                   flex: 1,
                   child: IconButton(
-                    tooltip: 'Избранное',
+                    tooltip: standardSelected.toString(),
                     icon: const Icon(Icons.favorite),
+                    selectedIcon: const Icon(Icons.favorite),
+                    isSelected: standardSelected,
+                    color: colorButton,
                     onPressed: () {
-                      if (favoriteCars[carId].id != carsList[carId].id && standardSelected == false) {
+                      if (standardSelected == false) {
                         favoriteCars.add(carsList[carId]);
-                      } else if (favoriteCars[carId].id == carsList[carId].id && standardSelected == true) {
-                        
+                        colorButton = Colors.red;
+                        setState(() {
+                          standardSelected = !standardSelected;
+                        });
+                      } else if (standardSelected == true) {
+                        favoriteCars.removeAt(carId);
+                        colorButton = Colors.black;
+                        setState(() {
+                          standardSelected = !standardSelected;
+                        });
                       }
                     },
                   ),
@@ -77,13 +89,13 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                   flex: 1,
                   child: IconButton(
                     tooltip: standardSelected.toString(),
-                    isSelected: standardSelected,
+                    // isSelected: standardSelected,
                     icon: const Icon(Icons.shopping_cart),
-                    selectedIcon: const Icon(Icons.shopping_cart),
+                    // selectedIcon: const Icon(Icons.shopping_cart),
                     onPressed: () {
-                      setState(() {
-                        standardSelected = !standardSelected;
-                      });
+                      // setState(() {
+                      //   standardSelected = !standardSelected;
+                      // });
                     },
                   ),
                 ),
