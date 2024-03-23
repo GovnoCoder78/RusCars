@@ -5,8 +5,6 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/model/youtube.dart';
-bool standardSelected = false;
-Color colorButton = Colors.black;
 
 class ListViewSampleForCardOfCar extends StatefulWidget {
   int carId;
@@ -44,7 +42,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Row(
               children: [
                 const SizedBox(
@@ -63,23 +61,23 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                 Expanded(
                   flex: 1,
                   child: IconButton(
-                    tooltip: standardSelected.toString(),
+                    tooltip: 'Избранное',
                     icon: const Icon(Icons.favorite),
                     selectedIcon: const Icon(Icons.favorite),
-                    isSelected: standardSelected,
-                    color: colorButton,
+                    isSelected: carsList[carId].statusFavoriteSelected,
+                    color: carsList[carId].colorFavoriteButton,
                     onPressed: () {
-                      if (standardSelected == false) {
+                      if (carsList[carId].statusFavoriteSelected == false) {
                         favoriteCars.add(carsList[carId]);
-                        colorButton = Colors.red;
+                        carsList[carId].colorFavoriteButton = Colors.red;
                         setState(() {
-                          standardSelected = !standardSelected;
+                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
                         });
-                      } else if (standardSelected == true) {
-                        favoriteCars.removeAt(carId);
-                        colorButton = Colors.black;
+                      } else {
+                        favoriteCars.removeWhere((element) => element.id == carId);
+                        carsList[carId].colorFavoriteButton = Colors.black;
                         setState(() {
-                          standardSelected = !standardSelected;
+                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
                         });
                       }
                     },
@@ -88,14 +86,25 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                 Expanded(
                   flex: 1,
                   child: IconButton(
-                    tooltip: standardSelected.toString(),
-                    // isSelected: standardSelected,
+                    tooltip: 'Корзина',
                     icon: const Icon(Icons.shopping_cart),
-                    // selectedIcon: const Icon(Icons.shopping_cart),
+                    selectedIcon: const Icon(Icons.shopping_cart),
+                    isSelected: carsList[carId].statusCartSelected,
+                    color: carsList[carId].colorCartButton,
                     onPressed: () {
-                      // setState(() {
-                      //   standardSelected = !standardSelected;
-                      // });
+                      if (carsList[carId].statusCartSelected == false) {
+                        carsInCart.add(carsList[carId]);
+                        carsList[carId].colorCartButton = Colors.blueAccent;
+                        setState(() {
+                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
+                        });
+                      } else {
+                        carsInCart.removeWhere((element) => element.id == carId);
+                        carsList[carId].colorCartButton = Colors.black;
+                        setState(() {
+                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
+                        });
+                      }
                     },
                   ),
                 ),
@@ -124,7 +133,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 6,
             child: Table(
               border: TableBorder.all(),
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -143,7 +152,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[0],
+                        ' ${carsList[carId].characteristics[0]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -166,7 +175,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[1],
+                        ' ${carsList[carId].characteristics[1]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -188,7 +197,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[2],
+                        ' ${carsList[carId].characteristics[2]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -210,7 +219,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[3],
+                        ' ${carsList[carId].characteristics[3]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -232,7 +241,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[4],
+                        ' ${carsList[carId].characteristics[4]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -254,7 +263,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[5],
+                        ' ${carsList[carId].characteristics[5]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -276,7 +285,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[6],
+                        ' ${carsList[carId].characteristics[6]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),
@@ -298,7 +307,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     Expanded(
                       flex: 1,
                       child: Text(
-                        ' ' + carsList[carId].characteristics[7],
+                        ' ${carsList[carId].characteristics[7]}',
                         style: const TextStyle(
                             fontSize: 20
                         ),

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Cars {
   int id;
   String name;
@@ -7,8 +9,25 @@ class Cars {
   List characteristics;
   String video;
   List images;
+  bool statusFavoriteSelected;
+  Color colorFavoriteButton;
+  bool statusCartSelected;
+  Color colorCartButton;
 
-  Cars(this.id, this.name, this.equipment, this.price, this.characteristics, this.description, this.video, this.images);
+  Cars(
+      this.id,
+      this.name,
+      this.equipment,
+      this.price,
+      this.characteristics,
+      this.description,
+      this.video,
+      this.images,
+      this.statusFavoriteSelected,
+      this.colorFavoriteButton,
+      this.statusCartSelected,
+      this.colorCartButton
+      );
 }
 
 List<Cars> carsList =
@@ -34,7 +53,12 @@ List<Cars> carsList =
         "https://www.major-lada.ru/images/gallery/gallery_big_img/1535539472_02_new_lada_granta_se_background.jpg",
         "https://www.major-lada.ru/images/gallery/gallery_big_img/1535539472_03_new_lada_granta_se_background.jpg",
         "https://www.major-lada.ru/images/gallery/gallery_big_img/1535539472_01_new_lada_granta_se_background.jpg"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(1,
       'Lada Vesta',
       'COMFORT',
@@ -55,7 +79,12 @@ List<Cars> carsList =
         "https://www.major-lada.ru/images/gallery/gallery_big_img/base_photo_img_hd4.jpg",
         "https://www.major-lada.ru/images/gallery/gallery_big_img/base_photo_img_hd6.jpg",
         "https://www.major-lada.ru/images/gallery/gallery_big_img/base_photo_img_hd46.jpg"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(2,
       'Niva Travel',
       'CLASSIC',
@@ -76,7 +105,12 @@ List<Cars> carsList =
         "https://www.major-lada.ru/files/resources/top_nt_1.jpg",
         "https://www.major-lada.ru/files/resources/4_nt_1.jpg",
         "https://www.major-lada.ru/files/resources/niva_travel_1.jpg"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(3,
       'Niva Legend',
       'CLASSIC',
@@ -97,7 +131,12 @@ List<Cars> carsList =
         "https://www.major-lada.ru/files/resources/main_desktop.jpg",
         "https://www.major-lada.ru/files/resources/interior_side_legend.jpg",
         "https://www.major-lada.ru/files/resources/interior1legend.jpg"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(4,
       'Москвич 3',
       'STANDARD',
@@ -118,7 +157,12 @@ List<Cars> carsList =
         "https://alfaleasing.ru/catalog-next/_next/image/?url=https://autoxml.4px.tech/cdn/original/photo/1927/143998465326d293a694.jpg&w=3840&q=70",
         "https://avatars.dzeninfra.ru/get-zen_doc/4080549/pub_63a4ddb55d660b458be08f33_63a4de57dd8a477d9a53cd15/scale_1200",
         "https://avatars.mds.yandex.net/get-autoru-vos/5966122/51e0f80c08ea79e1ab919cdd4b8311d8/1200x900"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(5,
       'УАЗ Хантер',
       'ЭКСПЕДИЦИОННЫЙ',
@@ -139,7 +183,12 @@ List<Cars> carsList =
         "https://www.uaz.ru/data/uploads/uaz/originals/a982c337-9b29-4e49-9593-a42f64e51456.jpg",
         "https://two-auto.ru/wp-content/uploads/2019/06/49899.jpg",
         "https://i.trse.ru/2020/08/ev49.jpeg"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(6,
       'Москвич 6',
       'COMFORT',
@@ -160,7 +209,12 @@ List<Cars> carsList =
         "https://www.avtogermes.ru/images/models/exterior/e7d338542f8602ed862853621c2f18ea.jpg",
         "https://www.avtogermes.ru/images/models/exterior/9b52a508831400037f4aa19a7ea2d59d.jpg",
         "https://www.avtogermes.ru/images/models/exterior/34501811ea1aac70ec8952107c56197a.jpg"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(7,
       'УАЗ PATRIOT',
       'BASE ИКАР',
@@ -181,7 +235,12 @@ List<Cars> carsList =
         "https://imgproxy.autocrm.ru/HUBzCn5AOTvOvaD3gtcT2pHmPirZvOf2j5QvStciWvE/rs:auto:765:0:1/dpr:1/q:100/g:sm/aHR0cHM6Ly8xOTUwMDQuc2VsY2RuLnJ1L3JlZi9jYXRhbG9nLzIyMzc3LzQvMmI2ZjMzZTJiZS5wbmc.png",
         "https://imgproxy.autocrm.ru/e7vfGzQefZUmRLnU0LsGNbExokDDZgdytGcuNiWhKZ8/rs:auto:765:0:1/dpr:1/q:100/g:sm/aHR0cHM6Ly8xOTUwMDQuc2VsY2RuLnJ1L3JlZi9jYXRhbG9nLzIyMzgzLzEvYWJmMjNkZmFlZS5qcGc.jpg",
         "https://img.zr.ru/_ah/img/bYn9FzSLALFb6QcvU6BALw"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(8,
       'УАЗ PICKUP',
       'BASE ИКАР',
@@ -202,7 +261,12 @@ List<Cars> carsList =
         "https://imgproxy.autocrm.ru/nyCXYWkc-1b8YZzs50xPbIFLxy_2AZJlW5dhRI1SZGk/rs:auto:765:0:1/dpr:1/q:100/g:sm/aHR0cHM6Ly8xOTUwMDQuc2VsY2RuLnJ1L3JlZi9jYXRhbG9nLzg5Ny80LzUxNmY5MGUyNzAucG5n.png",
         "https://imgproxy.autocrm.ru/44YuzYRwrJzGW_mMFgXl-50hs5HEMnjmkiI5iY5_PwA/rs:auto:765:0:1/dpr:1/q:100/g:sm/aHR0cHM6Ly8xOTUwMDQuc2VsY2RuLnJ1L3JlZi9jYXRhbG9nLzg5Ny8xLzA4YWYwMWI0NGQucG5n.png",
         "https://pkfst.ru/800/600/https/mtdata.ru/u8/photo0CB5/20890369138-0/original.jpg"
-      ]),
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
   Cars(9,
       'УАЗ двухрядная кабина с бортом',
       'BASE ИКАР',
@@ -223,5 +287,10 @@ List<Cars> carsList =
         "https://imgproxy.autocrm.ru/HKot0dFFowAlPBcCekFJ4zyLS-QbEGOkTf0kH4ICHBw/rs:auto:765:0:1/dpr:1/q:100/g:sm/aHR0cHM6Ly8xOTUwMDQuc2VsY2RuLnJ1L3JlZi9jYXRhbG9nLzIxODkwLzQvMGUzNzc0ZjYwOS5wbmc.png",
         "https://imgproxy.autocrm.ru/x_T4sgtNCywWk-dQ_Xw-fYYEx-PQVhkJGrTOgp_0-1s/rs:auto:765:0:1/dpr:1/q:100/g:sm/aHR0cHM6Ly8xOTUwMDQuc2VsY2RuLnJ1L3JlZi9jYXRhbG9nLzIxODkwLzEvYTAxMDVhYzAxZC5wbmc.png",
         "https://imgproxy.autocrm.ru/BHmWiA6yYDdHOCdedyEcCyYN60ld9NSFhmhg54piTME/rs:auto:765:0:1/dpr:1/q:100/g:sm/aHR0cHM6Ly8xOTUwMDQuc2VsY2RuLnJ1L3JlZi9jYXRhbG9nLzIxODkwLzEyL2Y1N2M3ZTVkODguanBn.jpg"
-      ])
+      ],
+      false,
+      Colors.black,
+      false,
+      Colors.black
+  ),
 ];

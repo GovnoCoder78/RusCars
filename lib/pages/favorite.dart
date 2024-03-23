@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/components/grid_view_sample.dart';
-import 'package:rus_car/pages/cart.dart';
 
 class Favorite extends StatelessWidget {
   const Favorite({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class Favorite extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Российские автомобили",
+          "Избранное",
           style: TextStyle(
             fontSize: 30,
           ),
@@ -40,52 +40,10 @@ class Favorite extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blueGrey,
-        child: Row(
-          children: [
-            const SizedBox(
-              width: 47,
-            ),
-            IconButton(
-              tooltip: 'Главная',
-              icon: const Icon(Icons.car_crash),
-              onPressed: () {},
-            ),
-            const SizedBox(
-              width: 70,
-            ),
-            IconButton(
-              tooltip: 'Избранное',
-              icon: const Icon(Icons.favorite),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Favorite(
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              width: 70,
-            ),
-            IconButton(
-              tooltip: 'Корзина',
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Cart(
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+      bottomNavigationBar: const BottomAppBarSample(
+        homePage: true,
+        favorite: false,
+        cart: true,
       ),
     );
   }

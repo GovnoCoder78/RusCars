@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_sample.dart';
 import 'package:rus_car/model/cars.dart';
-import 'package:rus_car/pages/cart.dart';
-import 'package:rus_car/pages/favorite.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class HomePage extends StatelessWidget {
         title: const Text(
           "Российские автомобили",
           style: TextStyle(
-            fontSize: 30,
+            fontSize: 28,
           ),
         ),
         backgroundColor: Colors.grey,
@@ -40,52 +39,10 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blueGrey,
-        child: Row(
-          children: [
-            const SizedBox(
-              width: 47,
-            ),
-            IconButton(
-              tooltip: 'Главная',
-              icon: const Icon(Icons.car_crash),
-              onPressed: () {},
-            ),
-            const SizedBox(
-              width: 70,
-            ),
-            IconButton(
-              tooltip: 'Избранное',
-              icon: const Icon(Icons.favorite),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Favorite(
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              width: 70,
-            ),
-            IconButton(
-              tooltip: 'Корзина',
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Cart(
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+      bottomNavigationBar: const BottomAppBarSample(
+        homePage: false,
+        favorite: true,
+        cart: true,
       ),
     );
   }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/list_view_sample_for_card_of_car.dart';
 import 'package:rus_car/model/cars.dart';
-import 'package:rus_car/pages/cart.dart';
-import 'package:rus_car/pages/favorite.dart';
-import 'package:rus_car/pages/home_page.dart';
 
 class CardOfCar extends StatelessWidget {
   final int id;
@@ -37,60 +35,10 @@ class CardOfCar extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blueGrey,
-        child: Row(
-          children: [
-            const SizedBox(
-              width: 47,
-            ),
-            IconButton(
-              tooltip: 'Главная',
-              icon: const Icon(Icons.car_crash),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              width: 70,
-            ),
-            IconButton(
-              tooltip: 'Избранное',
-              icon: const Icon(Icons.favorite),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Favorite(
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(
-              width: 70,
-            ),
-            IconButton(
-              tooltip: 'Корзина',
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Cart(
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+      bottomNavigationBar: const BottomAppBarSample(
+        homePage: true,
+        favorite: true,
+        cart: true,
       ),
     );
   }
