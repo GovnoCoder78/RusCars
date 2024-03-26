@@ -63,7 +63,7 @@ class GridViewSample extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[carId].price,
+                      '${carsList[carId].price} рублей',
                       style: const TextStyle(
                         fontSize: 21,
                       ),

@@ -114,7 +114,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
           Expanded(
             flex: 1,
             child: Text(
-              carsList[carId].price,
+              '${carsList[carId].price} рублей',
               style: const TextStyle(
                 fontSize: 25,
               ),

@@ -4,7 +4,7 @@ class Cars {
   int id;
   String name;
   String equipment;
-  String price;
+  int price;
   String description;
   List characteristics;
   String video;
@@ -35,7 +35,7 @@ List<Cars> carsList =
   Cars(0,
       'Lada Granta',
       'STANDARD',
-      'Цена: 699900 рублей',
+      699900,
       [
         '1.6 л',
         'АИ-95',
@@ -62,7 +62,7 @@ List<Cars> carsList =
   Cars(1,
       'Lada Vesta',
       'COMFORT',
-      'Цена: 1239900 рублей',
+      1239900,
       [
         '1.6 л',
         'АИ-92',
@@ -88,7 +88,7 @@ List<Cars> carsList =
   Cars(2,
       'Niva Travel',
       'CLASSIC',
-      'Цена: 1198900 рублей',
+      1198900,
       [
         '1.7 л',
         'АИ-95',
@@ -114,7 +114,7 @@ List<Cars> carsList =
   Cars(3,
       'Niva Legend',
       'CLASSIC',
-      'Цена: 829900 рублей',
+      829900,
       [
         '1.7 л',
         'АИ-95',
@@ -140,7 +140,7 @@ List<Cars> carsList =
   Cars(4,
       'Москвич 3',
       'STANDARD',
-      'Цена: 1830000 рублей',
+      1830000,
       [
         '1.5 л',
         'АИ-92',
@@ -166,7 +166,7 @@ List<Cars> carsList =
   Cars(5,
       'УАЗ Хантер',
       'ЭКСПЕДИЦИОННЫЙ',
-      'Цена: 990900 рублей',
+      990900,
       [
         '2.7 л',
         'АИ-92',
@@ -192,7 +192,7 @@ List<Cars> carsList =
   Cars(6,
       'Москвич 6',
       'COMFORT',
-      'Цена: 1536000 рублей',
+      1536000,
       [
         '1.5 л',
         'АИ-95',
@@ -218,7 +218,7 @@ List<Cars> carsList =
   Cars(7,
       'УАЗ PATRIOT',
       'BASE ИКАР',
-      'Цена: 1496000 рублей',
+      1496000,
       [
         '2.7 л',
         'АИ-92',
@@ -244,7 +244,7 @@ List<Cars> carsList =
   Cars(8,
       'УАЗ PICKUP',
       'BASE ИКАР',
-      'Цена: 1505000 рублей',
+      1505000,
       [
         '2.7 л',
         'АИ-95',
@@ -270,7 +270,7 @@ List<Cars> carsList =
   Cars(9,
       'УАЗ двухрядная кабина с бортом',
       'BASE ИКАР',
-      'Цена: 1630000 рублей',
+      1630000,
       [
         '1.6 л',
         'АИ-92',
