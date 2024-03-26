@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
+import 'package:rus_car/components/grid_view_cart_sample.dart';
 import 'package:rus_car/model/cart_list.dart';
 import '../components/grid_view_sample.dart';
 
@@ -33,7 +34,7 @@ class Cart extends StatelessWidget {
                 mainAxisSpacing: 5),
             itemCount: carsInCart.length,
             itemBuilder: (BuildContext context, index) {
-              return GridViewSample(
+              return GridViewCartSample(
                 carId: carsInCart[index].id,
               );
             },

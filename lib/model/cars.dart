@@ -13,6 +13,7 @@ class Cars {
   Color colorFavoriteButton;
   bool statusCartSelected;
   Color colorCartButton;
+  int count;
 
   Cars(
       this.id,
@@ -26,7 +27,8 @@ class Cars {
       this.statusFavoriteSelected,
       this.colorFavoriteButton,
       this.statusCartSelected,
-      this.colorCartButton
+      this.colorCartButton,
+      this.count
       );
 }
 
@@ -57,7 +59,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+    1
   ),
   Cars(1,
       'Lada Vesta',
@@ -83,7 +86,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(2,
       'Niva Travel',
@@ -109,7 +113,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(3,
       'Niva Legend',
@@ -135,7 +140,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(4,
       'Москвич 3',
@@ -161,7 +167,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(5,
       'УАЗ Хантер',
@@ -187,7 +194,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(6,
       'Москвич 6',
@@ -213,7 +221,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(7,
       'УАЗ PATRIOT',
@@ -239,7 +248,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(8,
       'УАЗ PICKUP',
@@ -265,7 +275,8 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
   Cars(9,
       'УАЗ двухрядная кабина с бортом',
@@ -291,6 +302,7 @@ List<Cars> carsList =
       false,
       Colors.black,
       false,
-      Colors.black
+      Colors.black,
+      1
   ),
 ];
