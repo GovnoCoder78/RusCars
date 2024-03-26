@@ -51,7 +51,7 @@ class _Cart extends State<Cart> {
             Expanded(
                 flex: 1,
                 child: Text(
-                  '${sumPriceCarsInCart()} рублей',
+                  '${sumPriceCarsInCart2()} рублей',
                 ),
             ),
           ],
