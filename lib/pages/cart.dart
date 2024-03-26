@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_cart_sample.dart';
 import 'package:rus_car/model/cart_list.dart';
-import '../components/grid_view_sample.dart';
+import 'package:rus_car/model/sum.dart';
 
-class Cart extends StatelessWidget {
-  const Cart({Key? key}) : super(key: key);
+class Cart extends StatefulWidget {
+  const Cart({super.key});
 
+  @override
+  State<Cart> createState() => _Cart();
+}
+
+class _Cart extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,22 +28,33 @@ class Cart extends StatelessWidget {
       body: Container(
         alignment: Alignment.center,
         color: Colors.black26,
-        child: Expanded(
-          flex: 1,
-          child: GridView.builder(
-            padding: const EdgeInsets.all(5),
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 2 / 3,
-                crossAxisSpacing: 5,
-                mainAxisSpacing: 5),
-            itemCount: carsInCart.length,
-            itemBuilder: (BuildContext context, index) {
-              return GridViewCartSample(
-                carId: carsInCart[index].id,
-              );
-            },
-          ),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 10,
+              child: GridView.builder(
+                padding: const EdgeInsets.all(5),
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    childAspectRatio: 2 / 3,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
+                ),
+                itemCount: carsInCart.length,
+                itemBuilder: (BuildContext context, index) {
+                  return GridViewCartSample(
+                    carId: carsInCart[index].id,
+                  );
+                },
+              ),
+            ),
+            Expanded(
+                flex: 1,
+                child: Text(
+                  '${sumPriceCarsInCart()} рублей',
+                ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: const BottomAppBarSample(
