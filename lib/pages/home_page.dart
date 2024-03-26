@@ -43,6 +43,7 @@ class HomePage extends StatelessWidget {
         homePage: false,
         favorite: true,
         cart: true,
+        historyPay: true,
       ),
     );
   }

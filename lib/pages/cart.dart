@@ -44,6 +44,7 @@ class Cart extends StatelessWidget {
         homePage: true,
         favorite: true,
         cart: false,
+        historyPay: true,
       ),
     );
   }

@@ -42,73 +42,13 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
             ),
           ),
           Expanded(
-            flex: 2,
-            child: Row(
-              children: [
-                const SizedBox(
-                  width: 62,
-                ),
-                Expanded(
-                  flex: 9,
-                  child: Text(
-                    carsList[carId].name,
-                    style: const TextStyle(
-                      fontSize: 25,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: IconButton(
-                    tooltip: 'Избранное',
-                    icon: const Icon(Icons.favorite),
-                    selectedIcon: const Icon(Icons.favorite),
-                    isSelected: carsList[carId].statusFavoriteSelected,
-                    color: carsList[carId].colorFavoriteButton,
-                    onPressed: () {
-                      if (carsList[carId].statusFavoriteSelected == false) {
-                        favoriteCars.add(carsList[carId]);
-                        carsList[carId].colorFavoriteButton = Colors.red;
-                        setState(() {
-                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
-                        });
-                      } else {
-                        favoriteCars.removeWhere((element) => element.id == carId);
-                        carsList[carId].colorFavoriteButton = Colors.black;
-                        setState(() {
-                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
-                        });
-                      }
-                    },
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: IconButton(
-                    tooltip: 'Корзина',
-                    icon: const Icon(Icons.shopping_cart),
-                    selectedIcon: const Icon(Icons.shopping_cart),
-                    isSelected: carsList[carId].statusCartSelected,
-                    color: carsList[carId].colorCartButton,
-                    onPressed: () {
-                      if (carsList[carId].statusCartSelected == false) {
-                        carsInCart.add(carsList[carId]);
-                        carsList[carId].colorCartButton = Colors.blueAccent;
-                        setState(() {
-                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
-                        });
-                      } else {
-                        carsInCart.removeWhere((element) => element.id == carId);
-                        carsList[carId].colorCartButton = Colors.black;
-                        setState(() {
-                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
-                        });
-                      }
-                    },
-                  ),
-                ),
-              ],
+            flex: 1,
+            child: Text(
+              carsList[carId].name,
+              style: const TextStyle(
+                fontSize: 25,
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
           Expanded(
@@ -320,6 +260,70 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
           ),
           Video(
               id: carId
+          ),
+          Expanded(
+            flex: 1,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: IconButton(
+                    tooltip: 'Избранное',
+                    icon: const Icon(Icons.favorite),
+                    selectedIcon: const Icon(Icons.favorite),
+                    isSelected: carsList[carId].statusFavoriteSelected,
+                    color: carsList[carId].colorFavoriteButton,
+                    onPressed: () {
+                      if (carsList[carId].statusFavoriteSelected == false) {
+                        favoriteCars.add(carsList[carId]);
+                        carsList[carId].colorFavoriteButton = Colors.red;
+                        setState(() {
+                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
+                        });
+                      } else {
+                        favoriteCars.removeWhere((element) => element.id == carId);
+                        carsList[carId].colorFavoriteButton = Colors.black;
+                        setState(() {
+                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
+                        });
+                      }
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text('Купить'),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: IconButton(
+                    tooltip: 'Корзина',
+                    icon: const Icon(Icons.shopping_cart),
+                    selectedIcon: const Icon(Icons.shopping_cart),
+                    isSelected: carsList[carId].statusCartSelected,
+                    color: carsList[carId].colorCartButton,
+                    onPressed: () {
+                      if (carsList[carId].statusCartSelected == false) {
+                        carsInCart.add(carsList[carId]);
+                        carsList[carId].colorCartButton = Colors.blueAccent;
+                        setState(() {
+                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
+                        });
+                      } else {
+                        carsInCart.removeWhere((element) => element.id == carId);
+                        carsList[carId].colorCartButton = Colors.black;
+                        setState(() {
+                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
+                        });
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

@@ -39,6 +39,7 @@ class CardOfCar extends StatelessWidget {
         homePage: true,
         favorite: true,
         cart: true,
+        historyPay: true,
       ),
     );
   }

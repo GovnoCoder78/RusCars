@@ -44,6 +44,7 @@ class Favorite extends StatelessWidget {
         homePage: true,
         favorite: false,
         cart: true,
+        historyPay: true,
       ),
     );
   }
