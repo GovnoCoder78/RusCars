@@ -12,9 +12,11 @@ class Cart extends StatefulWidget {
 }
 
 class _Cart extends State<Cart> {
-  int? update() {
+late int superSum;
+  int? update(superSum) {
     setState(() {
-      sumPriceCarsInCart();
+      int sum = sumPriceCarsInCart();
+      superSum = sum;
     });
   }
   @override
@@ -56,7 +58,7 @@ class _Cart extends State<Cart> {
             Expanded(
                 flex: 1,
                 child: Text(
-                  '${update()} рублей',
+                  '${update(superSum)} рублей',
                 ),
             ),
           ],
