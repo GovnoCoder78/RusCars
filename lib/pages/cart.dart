@@ -12,6 +12,11 @@ class Cart extends StatefulWidget {
 }
 
 class _Cart extends State<Cart> {
+  int? update() {
+    setState(() {
+      sumPriceCarsInCart();
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +56,7 @@ class _Cart extends State<Cart> {
             Expanded(
                 flex: 1,
                 child: Text(
-                  '${sumPriceCarsInCart2()} рублей',
+                  '${update()} рублей',
                 ),
             ),
           ],

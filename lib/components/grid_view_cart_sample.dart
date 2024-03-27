@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
+
+import '../model/sum.dart';
 bool isButtonDisabled = true;
 
 class GridViewCartSample extends StatefulWidget {
