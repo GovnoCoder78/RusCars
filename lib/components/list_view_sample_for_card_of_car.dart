@@ -311,7 +311,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                           } else {
                             cart.addToCart(carId);
                             carsInCart.add(
-                                CarsCart(carId,
+                                CarsCart(carsInCart.length,
                                     carsList[carId].name,
                                     carsList[carId].equipment,
                                     carsList[carId].price,

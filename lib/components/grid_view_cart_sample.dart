@@ -138,8 +138,13 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                           setState(() {
                             carsInCart.removeWhere((element) => element.id == carId);
                             widget.updateSum();
+                            cart.removeFromCart(carId);
+                            var counter = 0;
+                            while (counter < carsInCart.length) {
+                              carsInCart[counter].id = counter;
+                              counter++;
+                            }
                           });
-                          cart.removeFromCart(carId);
                         },
                         child: const Text(
                           'Удалить',
