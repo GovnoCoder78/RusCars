@@ -65,7 +65,7 @@ class GridViewHistoryPaySample extends StatelessWidget {
                     child: Text(
                       'В количестве ${historyPayCars[carId].count} штук',
                       style: const TextStyle(
-                        fontSize: 19,
+                        fontSize: 18,
                       ),
                       textAlign: TextAlign.center,
                     ),
