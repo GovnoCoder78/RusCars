@@ -3,12 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 import '../model/favorite_list.dart';
-import 'icon_button_cart.dart';
 import 'list_view_sample_for_card_of_car.dart';
 
 class GridViewFavoriteSample extends StatefulWidget {
   final int carId;
-  const GridViewFavoriteSample({super.key, required this.carId});
+  final VoidCallback update;
+  const GridViewFavoriteSample({super.key, required this.carId, required this.update});
   @override
   State<GridViewFavoriteSample> createState() => _GridViewFavoriteSample(carId);
 }
@@ -82,53 +82,19 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   ),
                 ),
                 Expanded(
-                  flex: 1,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Consumer<CartModel>(
-                          builder: (context, cart, child) {
-                            return IconButton(
-                              tooltip: 'Избранное',
-                              icon: const Icon(Icons.favorite),
-                              selectedIcon: const Icon(Icons.favorite),
-                              isSelected: cart.favoriteCars.contains(carId),
-                              color: cart.favoriteCars.contains(carId) ? Colors.red : Colors.black,
-                              onPressed: () {
-                                setState(() {
-                                  if (cart.favoriteCars.contains(carId)) {
-                                    cart.removeFromFavorite(carId);
-                                    favoriteCars.removeWhere((element) => element.id == carId);
-                                    var counter = 0;
-                                    while (counter < favoriteCars.length) {
-                                      favoriteCars[counter].id = counter;
-                                      counter++;
-                                    }
-                                  } else {
-                                    cart.addToFavorite(carId);
-                                    favoriteCars.add(carsList[carId]);
-                                  }
-                                });
-                              },
-                            );
-                          },
+                  child: Consumer<CartModel>(
+                    builder: (context, cart, child) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          favoriteCars.removeWhere((element) => element.id == carId);
+                          widget.update();
+                          cart.removeFromFavorite(carId);
+                        },
+                        child: const Text(
+                          'Удалить',
                         ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Купить'),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButtonCart(
-                          carId: carId,
-                        ),
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ),
               ],

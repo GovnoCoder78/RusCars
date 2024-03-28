@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
+import 'package:rus_car/components/grid_view_favorite_sample.dart';
 import 'package:rus_car/model/favorite_list.dart';
-import 'package:rus_car/components/grid_view_sample.dart';
 
-class Favorite extends StatelessWidget {
-  const Favorite({Key? key}) : super(key: key);
+
+class Favorite extends StatefulWidget {
+  const Favorite({super.key});
+
+  @override
+  State<Favorite> createState() => _Favorite();
+}
+
+class _Favorite extends State<Favorite> {
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +40,9 @@ class Favorite extends StatelessWidget {
                 mainAxisSpacing: 5),
             itemCount: favoriteCars.length,
             itemBuilder: (BuildContext context, index) {
-              return GridViewSample(
+              return GridViewFavoriteSample(
                 carId: favoriteCars[index].id,
+                update: update,
               );
             },
           ),
@@ -47,5 +55,8 @@ class Favorite extends StatelessWidget {
         historyPay: true,
       ),
     );
+  }
+  void update() {
+    setState(() {});
   }
 }
