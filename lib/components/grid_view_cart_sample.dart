@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/pages/card_of_car.dart';
-
 import 'list_view_sample_for_card_of_car.dart';
 
 class GridViewCartSample extends StatefulWidget {

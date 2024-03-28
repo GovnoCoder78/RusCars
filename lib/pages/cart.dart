@@ -6,7 +6,6 @@ import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/model/sum.dart';
 import 'package:rus_car/pages/history_pay.dart';
-
 import '../components/list_view_sample_for_card_of_car.dart';
 
 class Cart extends StatefulWidget {
