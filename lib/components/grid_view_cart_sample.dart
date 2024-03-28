@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
+import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 
 class GridViewCartSample extends StatefulWidget {
@@ -39,7 +40,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                 Expanded(
                   flex: 2,
                   child: Image.network(
-                    carsList[carId].images[0],
+                    carsInCart[carId].images[0],
                   ),
                 ),
                 Expanded(
@@ -47,7 +48,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[carId].name,
+                      carsInCart[carId].name,
                       style: const TextStyle(
                         fontSize: 21,
                       ),
@@ -60,7 +61,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[carId].equipment,
+                      carsInCart[carId].equipment,
                       style: const TextStyle(
                         fontSize: 21,
                       ),
@@ -74,18 +75,18 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: carsList[carId].isButtonDisabled ? null : () {
-                            if (carsList[carId].count < 1) {}
-                            else if (carsList[carId].count == 2) {
-                              carsList[carId].isButtonDisabled = true;
+                          onPressed: carsInCart[carId].isButtonDisabled ? null : () {
+                            if (carsInCart[carId].count < 1) {}
+                            else if (carsInCart[carId].count == 2) {
+                              carsInCart[carId].isButtonDisabled = true;
                               setState(() {
-                                carsList[carId].count--;
+                                carsInCart[carId].count--;
                                 widget.updateSum();
                               });
                             }
                             else {
                               setState(() {
-                                carsList[carId].count--;
+                                carsInCart[carId].count--;
                                 widget.updateSum();
                               });
                             }
@@ -95,7 +96,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                       ),
                       Expanded(
                         child: Text(
-                          carsList[carId].count.toString(),
+                          carsInCart[carId].count.toString(),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -103,9 +104,9 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                         child: ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              carsList[carId].count++;
+                              carsInCart[carId].count++;
                               widget.updateSum();
-                              carsList[carId].isButtonDisabled = false;
+                              carsInCart[carId].isButtonDisabled = false;
                             });
                           },
                           child: const Text('+'),
@@ -119,7 +120,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      '${carsList[carId].price * carsList[carId].count} рублей',
+                      '${carsInCart[carId].price * carsInCart[carId].count} рублей',
                       style: const TextStyle(
                         fontSize: 21,
                       ),

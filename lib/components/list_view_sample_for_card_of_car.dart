@@ -7,16 +7,12 @@ import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/model/youtube.dart';
 
-import '../main.dart';
-
 class ListViewSampleForCardOfCar extends StatefulWidget {
   int carId;
   ListViewSampleForCardOfCar({super.key, required this.carId});
-
   @override
   State<ListViewSampleForCardOfCar> createState() => _ListViewSampleForCardOfCarState(carId);
 }
-
 class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar> {
   final int carId;
   _ListViewSampleForCardOfCarState(this.carId);
@@ -300,53 +296,43 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     child: const Text('Купить'),
                   ),
                 ),
-                // Expanded(
-                //   flex: 1,
-                //   child: IconButton(
-                //     tooltip: 'Корзина',
-                //     icon: const Icon(Icons.shopping_cart),
-                //     selectedIcon: const Icon(Icons.shopping_cart),
-                //     isSelected: carsList[carId].statusCartSelected,
-                //     color: carsList[carId].colorCartButton,
-                //     onPressed: () {
-                //       if (carsList[carId].statusCartSelected == false) {
-                //         carsInCart.add(carsList[carId]);
-                //         carsList[carId].colorCartButton = Colors.blueAccent;
-                //         setState(() {
-                //           carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
-                //         });
-                //       } else {
-                //         carsInCart.removeWhere((element) => element.id == carId);
-                //         carsList[carId].colorCartButton = Colors.black;
-                //         setState(() {
-                //           carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
-                //         });
-                //       }
-                //     },
-                //   ),
-                // ),
                 Expanded(
                   flex: 1,
-                    child: Consumer<CartModel>(
-                      builder: (context, cart, child) {
-                        return IconButton(
-                          tooltip: 'Корзина',
-                          icon: const Icon(Icons.shopping_cart),
-                          selectedIcon: const Icon(Icons.shopping_cart),
-                          isSelected: cart.carsInCart.contains(carId),
-                          color: cart.carsInCart.contains(carId) ? Colors.blueAccent : Colors.black,
-                          onPressed: () {
-                            if (cart.carsInCart.contains(carId)) {
-                              cart.removeFromCart(carId);
-                              carsInCart.removeWhere((element) => element.id == carId);
-                            } else {
-                              cart.addToCart(carId);
-                              carsInCart.add(carsList[carId]);
-                            }
-                          },
-                        );
-                      },
-                    ),
+                  child: Consumer<CartModel>(
+                    builder: (context, cart, child) {
+                      return IconButton(
+                        tooltip: 'Корзина',
+                        icon: const Icon(Icons.shopping_cart),
+                        selectedIcon: const Icon(Icons.shopping_cart),
+                        isSelected: cart.carsInCart.contains(carId),
+                        color: cart.carsInCart.contains(carId) ? Colors.blueAccent : Colors.black,
+                        onPressed: () {
+                          if (cart.carsInCart.contains(carId)) {
+                            cart.removeFromCart(carId);
+                            carsInCart.removeWhere((element) => element.id == carId);
+                          } else {
+                            cart.addToCart(carId);
+                            carsInCart.add(
+                                CarsCart(carId,
+                                    carsList[carId].name,
+                                    carsList[carId].equipment,
+                                    carsList[carId].price,
+                                    carsList[carId].characteristics,
+                                    carsList[carId].description,
+                                    carsList[carId].video,
+                                    carsList[carId].images,
+                                    carsList[carId].statusFavoriteSelected,
+                                    carsList[carId].colorFavoriteButton,
+                                    carsList[carId].statusCartSelected,
+                                    carsList[carId].colorCartButton,
+                                    carsList[carId].count,
+                                    carsList[carId].isButtonDisabled
+                                ));
+                          }
+                        },
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
@@ -356,17 +342,13 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
     );
   }
 }
-
 class CartModel with ChangeNotifier {
   final List<int> _carsInCart = [];
-
   List<int> get carsInCart => _carsInCart;
-
   void addToCart(int carId) {
     _carsInCart.add(carId);
     notifyListeners();
   }
-
   void removeFromCart(int carId) {
     _carsInCart.remove(carId);
     notifyListeners();

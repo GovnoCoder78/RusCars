@@ -18,12 +18,12 @@ class Cart extends StatefulWidget {
 
 class _Cart extends State<Cart> {
   int sum = 0;
-  Map<int, int> mapHistoryPayCars = {};
   @override
   void initState() {
     super.initState();
     sum = sumPriceCarsInCart();
   }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -85,7 +85,23 @@ class _Cart extends State<Cart> {
                             counter++;
                           }
                           else {
-                            historyPayCars.add(carsInCart[counter]);
+                            historyPayCars.add(
+                            HistoryCars(counter,
+                                carsInCart[counter].name,
+                                carsInCart[counter].equipment,
+                                carsInCart[counter].price,
+                                carsInCart[counter].characteristics,
+                                carsInCart[counter].description,
+                                carsInCart[counter].video,
+                                carsInCart[counter].images,
+                                carsInCart[counter].statusFavoriteSelected,
+                                carsInCart[counter].colorFavoriteButton,
+                                carsInCart[counter].statusCartSelected,
+                                carsInCart[counter].colorCartButton,
+                                carsInCart[counter].count,
+                                carsInCart[counter].isButtonDisabled
+                            )
+                            );
                             cart.removeFromCart(counter);
                             counter++;
                           }
