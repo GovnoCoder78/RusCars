@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:rus_car/components/icon_button_favorite.dart';
 import 'package:rus_car/components/list_view_sample_for_description.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
-import 'package:rus_car/model/cart_list.dart';
-import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/model/youtube.dart';
+
+import 'icon_button_cart.dart';
 
 class ListViewSampleForCardOfCar extends StatefulWidget {
   int carId;
@@ -266,25 +266,8 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
               children: [
                 Expanded(
                   flex: 1,
-                  child: Consumer<CartModel>(
-                    builder: (context, cart, child) {
-                      return IconButton(
-                        tooltip: 'Избранное',
-                        icon: const Icon(Icons.favorite),
-                        selectedIcon: const Icon(Icons.favorite),
-                        isSelected: cart.favoriteCars.contains(carId),
-                        color: cart.favoriteCars.contains(carId) ? Colors.red : Colors.black,
-                        onPressed: () {
-                          if (cart.favoriteCars.contains(carId)) {
-                            cart.removeFromFavorite(carId);
-                            favoriteCars.removeWhere((element) => element.id == carId);
-                          } else {
-                            cart.addToFavorite(carId);
-                            favoriteCars.add(carsList[carId]);
-                          }
-                        },
-                      );
-                    },
+                  child: IconButtonFavorite(
+                      carId: carId,
                   ),
                 ),
                 Expanded(
@@ -296,36 +279,8 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                 ),
                 Expanded(
                   flex: 1,
-                  child: Consumer<CartModel>(
-                    builder: (context, cart, child) {
-                      return IconButton(
-                        tooltip: 'Корзина',
-                        icon: const Icon(Icons.shopping_cart),
-                        selectedIcon: const Icon(Icons.shopping_cart),
-                        isSelected: cart.carsInCart.contains(carId),
-                        color: cart.carsInCart.contains(carId) ? Colors.blueAccent : Colors.black,
-                        onPressed: () {
-                          if (cart.carsInCart.contains(carId)) {
-                            cart.removeFromCart(carId);
-                            carsInCart.removeWhere((element) => element.id == carId);
-                          } else {
-                            cart.addToCart(carId);
-                            carsInCart.add(
-                                CarsCart(carsInCart.length,
-                                    carsList[carId].name,
-                                    carsList[carId].equipment,
-                                    carsList[carId].price,
-                                    carsList[carId].characteristics,
-                                    carsList[carId].description,
-                                    carsList[carId].video,
-                                    carsList[carId].images,
-                                    carsList[carId].count,
-                                    carsList[carId].isButtonDisabled
-                                ));
-                          }
-                        },
-                      );
-                    },
+                  child: IconButtonCart(
+                    carId: carId,
                   ),
                 ),
               ],

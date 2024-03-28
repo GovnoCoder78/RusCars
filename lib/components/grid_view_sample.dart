@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 
+import 'icon_button_cart.dart';
+import 'icon_button_favorite.dart';
+
 class GridViewSample extends StatelessWidget {
   final int carId;
   const GridViewSample({Key? key, required this.carId}) : super(key: key);
@@ -69,6 +72,32 @@ class GridViewSample extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: IconButtonFavorite(
+                          carId: carId,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('Купить'),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: IconButtonCart(
+                          carId: carId,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
