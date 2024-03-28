@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 
-import '../model/sum.dart';
-bool isButtonDisabled = true;
-
 class GridViewCartSample extends StatefulWidget {
   int carId;
-  GridViewCartSample({super.key, required this.carId});
+  final VoidCallback updateSum;
+
+  GridViewCartSample({super.key, required this.carId, required this.updateSum});
 
   @override
   State<GridViewCartSample> createState() => _GridViewCartSample(carId);
@@ -75,17 +74,19 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: isButtonDisabled ? null : () {
+                          onPressed: carsList[carId].isButtonDisabled ? null : () {
                             if (carsList[carId].count < 1) {}
                             else if (carsList[carId].count == 2) {
-                              isButtonDisabled = true;
+                              carsList[carId].isButtonDisabled = true;
                               setState(() {
                                 carsList[carId].count--;
+                                widget.updateSum();
                               });
                             }
                             else {
                               setState(() {
                                 carsList[carId].count--;
+                                widget.updateSum();
                               });
                             }
                           },
@@ -103,7 +104,8 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                           onPressed: () {
                             setState(() {
                               carsList[carId].count++;
-                              isButtonDisabled = false;
+                              widget.updateSum();
+                              carsList[carId].isButtonDisabled = false;
                             });
                           },
                           child: const Text('+'),

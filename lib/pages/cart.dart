@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_cart_sample.dart';
 import 'package:rus_car/model/cart_list.dart';
+import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/model/sum.dart';
+import 'package:rus_car/pages/history_pay.dart';
+
+import '../components/list_view_sample_for_card_of_car.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -12,14 +17,13 @@ class Cart extends StatefulWidget {
 }
 
 class _Cart extends State<Cart> {
-late int superSum;
-  int? update(superSum) {
-    setState(() {
-      int sum = sumPriceCarsInCart();
-      superSum = sum;
-    });
-  }
+  int sum = 0;
+  Map<int, int> mapHistoryPayCars = {};
   @override
+  void initState() {
+    super.initState();
+    sum = sumPriceCarsInCart();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -42,24 +46,69 @@ late int superSum;
               child: GridView.builder(
                 padding: const EdgeInsets.all(5),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    childAspectRatio: 2 / 3,
-                    crossAxisSpacing: 5,
-                    mainAxisSpacing: 5,
+                  maxCrossAxisExtent: 200,
+                  childAspectRatio: 2 / 3,
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
                 ),
                 itemCount: carsInCart.length,
                 itemBuilder: (BuildContext context, index) {
                   return GridViewCartSample(
                     carId: carsInCart[index].id,
+                    updateSum: updateSum,
                   );
                 },
               ),
             ),
             Expanded(
-                flex: 1,
-                child: Text(
-                  '${update(superSum)} рублей',
+              flex: 1,
+              child: Text(
+                '$sum рублей',
+                style: const TextStyle(
+                  fontSize: 30,
                 ),
+              ),
+            ),
+            Expanded(
+              child: Consumer<CartModel>(
+                  builder: (context, cart, child) {
+                    return ElevatedButton(
+                      onPressed: () {
+                        var counter = 0;
+                        while (counter < carsInCart.length) {
+                          if (historyPayCars.indexWhere((element) =>
+                          element.id == counter) != -1) {
+                            historyPayCars[counter].count =
+                                historyPayCars[counter].count +
+                                    carsInCart[counter].count;
+                            cart.removeFromCart(counter);
+                            counter++;
+                          }
+                          else {
+                            historyPayCars.add(carsInCart[counter]);
+                            cart.removeFromCart(counter);
+                            counter++;
+                          }
+                        }
+                        carsInCart.removeWhere((element) => true);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                            const HistoryPay(
+                            ),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Купить',
+                        style: TextStyle(
+                          fontSize: 30,
+                        ),
+                      ),
+                    );
+                  }
+              ),
             ),
           ],
         ),
@@ -72,4 +121,10 @@ late int superSum;
       ),
     );
   }
+  void updateSum() {
+    setState(() {
+      sum = sumPriceCarsInCart();
+    });
+  }
 }
+

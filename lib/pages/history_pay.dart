@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
-import 'package:rus_car/model/favorite_list.dart';
-import 'package:rus_car/components/grid_view_sample.dart';
+import 'package:rus_car/components/grid_view_history_pay_sample.dart';
+import 'package:rus_car/model/history_pay_list.dart';
 
 class HistoryPay extends StatelessWidget {
   const HistoryPay({Key? key}) : super(key: key);
@@ -31,10 +31,10 @@ class HistoryPay extends StatelessWidget {
                 childAspectRatio: 2 / 3,
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5),
-            itemCount: favoriteCars.length,
+            itemCount: historyPayCars.length,
             itemBuilder: (BuildContext context, index) {
-              return GridViewSample(
-                carId: favoriteCars[index].id,
+              return GridViewHistoryPaySample(
+                carId: historyPayCars[index].id,
               );
             },
           ),

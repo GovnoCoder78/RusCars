@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rus_car/components/list_view_sample_for_description.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/favorite_list.dart';
 import 'package:rus_car/model/youtube.dart';
+
+import '../main.dart';
 
 class ListViewSampleForCardOfCar extends StatefulWidget {
   int carId;
@@ -297,30 +300,53 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                     child: const Text('Купить'),
                   ),
                 ),
+                // Expanded(
+                //   flex: 1,
+                //   child: IconButton(
+                //     tooltip: 'Корзина',
+                //     icon: const Icon(Icons.shopping_cart),
+                //     selectedIcon: const Icon(Icons.shopping_cart),
+                //     isSelected: carsList[carId].statusCartSelected,
+                //     color: carsList[carId].colorCartButton,
+                //     onPressed: () {
+                //       if (carsList[carId].statusCartSelected == false) {
+                //         carsInCart.add(carsList[carId]);
+                //         carsList[carId].colorCartButton = Colors.blueAccent;
+                //         setState(() {
+                //           carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
+                //         });
+                //       } else {
+                //         carsInCart.removeWhere((element) => element.id == carId);
+                //         carsList[carId].colorCartButton = Colors.black;
+                //         setState(() {
+                //           carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
+                //         });
+                //       }
+                //     },
+                //   ),
+                // ),
                 Expanded(
                   flex: 1,
-                  child: IconButton(
-                    tooltip: 'Корзина',
-                    icon: const Icon(Icons.shopping_cart),
-                    selectedIcon: const Icon(Icons.shopping_cart),
-                    isSelected: carsList[carId].statusCartSelected,
-                    color: carsList[carId].colorCartButton,
-                    onPressed: () {
-                      if (carsList[carId].statusCartSelected == false) {
-                        carsInCart.add(carsList[carId]);
-                        carsList[carId].colorCartButton = Colors.blueAccent;
-                        setState(() {
-                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
-                        });
-                      } else {
-                        carsInCart.removeWhere((element) => element.id == carId);
-                        carsList[carId].colorCartButton = Colors.black;
-                        setState(() {
-                          carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
-                        });
-                      }
-                    },
-                  ),
+                    child: Consumer<CartModel>(
+                      builder: (context, cart, child) {
+                        return IconButton(
+                          tooltip: 'Корзина',
+                          icon: const Icon(Icons.shopping_cart),
+                          selectedIcon: const Icon(Icons.shopping_cart),
+                          isSelected: cart.carsInCart.contains(carId),
+                          color: cart.carsInCart.contains(carId) ? Colors.blueAccent : Colors.black,
+                          onPressed: () {
+                            if (cart.carsInCart.contains(carId)) {
+                              cart.removeFromCart(carId);
+                              carsInCart.removeWhere((element) => element.id == carId);
+                            } else {
+                              cart.addToCart(carId);
+                              carsInCart.add(carsList[carId]);
+                            }
+                          },
+                        );
+                      },
+                    ),
                 ),
               ],
             ),
@@ -328,5 +354,21 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
         ],
       ),
     );
+  }
+}
+
+class CartModel with ChangeNotifier {
+  final List<int> _carsInCart = [];
+
+  List<int> get carsInCart => _carsInCart;
+
+  void addToCart(int carId) {
+    _carsInCart.add(carId);
+    notifyListeners();
+  }
+
+  void removeFromCart(int carId) {
+    _carsInCart.remove(carId);
+    notifyListeners();
   }
 }

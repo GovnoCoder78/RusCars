@@ -14,6 +14,7 @@ class Cars {
   bool statusCartSelected;
   Color colorCartButton;
   int count;
+  bool isButtonDisabled;
 
   Cars(
       this.id,
@@ -28,7 +29,8 @@ class Cars {
       this.colorFavoriteButton,
       this.statusCartSelected,
       this.colorCartButton,
-      this.count
+      this.count,
+      this.isButtonDisabled
       );
 }
 
@@ -60,7 +62,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-    1
+    1,
+    true
   ),
   Cars(1,
       'Lada Vesta',
@@ -87,7 +90,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(2,
       'Niva Travel',
@@ -114,7 +118,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(3,
       'Niva Legend',
@@ -141,7 +146,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(4,
       'Москвич 3',
@@ -168,7 +174,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(5,
       'УАЗ Хантер',
@@ -195,7 +202,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(6,
       'Москвич 6',
@@ -222,7 +230,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(7,
       'УАЗ PATRIOT',
@@ -249,7 +258,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(8,
       'УАЗ PICKUP',
@@ -276,7 +286,8 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
   Cars(9,
       'УАЗ двухрядная кабина с бортом',
@@ -303,6 +314,7 @@ List<Cars> carsList =
       Colors.black,
       false,
       Colors.black,
-      1
+      1,
+      true
   ),
 ];
