@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/pages/card_of_car.dart';
+
+import 'list_view_sample_for_card_of_car.dart';
 
 class GridViewCartSample extends StatefulWidget {
   int carId;
@@ -125,6 +128,24 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                       ),
                       textAlign: TextAlign.center,
                     ),
+                  ),
+                ),
+                Expanded(
+                  child: Consumer<CartModel>(
+                    builder: (context, cart, child) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            carsInCart.removeWhere((element) => element.id == carId);
+                            widget.updateSum();
+                          });
+                          cart.removeFromCart(carId);
+                        },
+                        child: const Text(
+                          'Удалить',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],

@@ -266,26 +266,24 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
               children: [
                 Expanded(
                   flex: 1,
-                  child: IconButton(
-                    tooltip: 'Избранное',
-                    icon: const Icon(Icons.favorite),
-                    selectedIcon: const Icon(Icons.favorite),
-                    isSelected: carsList[carId].statusFavoriteSelected,
-                    color: carsList[carId].colorFavoriteButton,
-                    onPressed: () {
-                      if (carsList[carId].statusFavoriteSelected == false) {
-                        favoriteCars.add(carsList[carId]);
-                        carsList[carId].colorFavoriteButton = Colors.red;
-                        setState(() {
-                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
-                        });
-                      } else {
-                        favoriteCars.removeWhere((element) => element.id == carId);
-                        carsList[carId].colorFavoriteButton = Colors.black;
-                        setState(() {
-                          carsList[carId].statusFavoriteSelected = !carsList[carId].statusFavoriteSelected;
-                        });
-                      }
+                  child: Consumer<CartModel>(
+                    builder: (context, cart, child) {
+                      return IconButton(
+                        tooltip: 'Избранное',
+                        icon: const Icon(Icons.favorite),
+                        selectedIcon: const Icon(Icons.favorite),
+                        isSelected: cart.favoriteCars.contains(carId),
+                        color: cart.favoriteCars.contains(carId) ? Colors.red : Colors.black,
+                        onPressed: () {
+                          if (cart.favoriteCars.contains(carId)) {
+                            cart.removeFromFavorite(carId);
+                            favoriteCars.removeWhere((element) => element.id == carId);
+                          } else {
+                            cart.addToFavorite(carId);
+                            favoriteCars.add(carsList[carId]);
+                          }
+                        },
+                      );
                     },
                   ),
                 ),
@@ -321,10 +319,6 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                                     carsList[carId].description,
                                     carsList[carId].video,
                                     carsList[carId].images,
-                                    carsList[carId].statusFavoriteSelected,
-                                    carsList[carId].colorFavoriteButton,
-                                    carsList[carId].statusCartSelected,
-                                    carsList[carId].colorCartButton,
                                     carsList[carId].count,
                                     carsList[carId].isButtonDisabled
                                 ));
@@ -344,13 +338,23 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
 }
 class CartModel with ChangeNotifier {
   final List<int> _carsInCart = [];
+  final List<int> _favoriteCars = [];
   List<int> get carsInCart => _carsInCart;
+  List<int> get favoriteCars => _favoriteCars;
   void addToCart(int carId) {
     _carsInCart.add(carId);
     notifyListeners();
   }
   void removeFromCart(int carId) {
     _carsInCart.remove(carId);
+    notifyListeners();
+  }
+  void addToFavorite(int carId) {
+    _favoriteCars.add(carId);
+    notifyListeners();
+  }
+  void removeFromFavorite(int carId) {
+    _favoriteCars.remove(carId);
     notifyListeners();
   }
 }
