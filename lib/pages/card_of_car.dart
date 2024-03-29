@@ -4,9 +4,9 @@ import 'package:rus_car/components/list_view_sample_for_card_of_car.dart';
 import 'package:rus_car/model/cars.dart';
 
 class CardOfCar extends StatefulWidget {
-  int id;
+  final int id;
   final VoidCallback update;
-  CardOfCar({super.key, required this.id, required this.update});
+  const CardOfCar({super.key, required this.id, required this.update});
   @override
   State<CardOfCar> createState() => _CardOfCar(id);
 }

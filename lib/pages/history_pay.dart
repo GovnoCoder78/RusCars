@@ -3,7 +3,6 @@ import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_history_pay_sample.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 
-
 class HistoryPay extends StatefulWidget {
   const HistoryPay({super.key});
   @override

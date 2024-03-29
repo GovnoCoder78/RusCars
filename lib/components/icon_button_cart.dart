@@ -3,9 +3,9 @@ import '../model/cars.dart';
 import '../model/cart_list.dart';
 
 class IconButtonCart extends StatefulWidget {
-  int carId;
+  final int carId;
   final VoidCallback update;
-  IconButtonCart({super.key, required this.carId, required this.update});
+  const IconButtonCart({super.key, required this.carId, required this.update});
   @override
   State<IconButtonCart> createState() => _IconButtonCart(carId);
 }

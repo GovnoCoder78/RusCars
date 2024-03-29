@@ -7,9 +7,9 @@ import 'package:rus_car/model/youtube.dart';
 import 'icon_button_cart.dart';
 
 class ListViewSampleForCardOfCar extends StatefulWidget {
-  int carId;
+  final int carId;
   final VoidCallback update;
-  ListViewSampleForCardOfCar({super.key, required this.carId, required this.update});
+  const ListViewSampleForCardOfCar({super.key, required this.carId, required this.update});
   @override
   State<ListViewSampleForCardOfCar> createState() => _ListViewSampleForCardOfCarState(carId);
 }

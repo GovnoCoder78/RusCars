@@ -3,9 +3,9 @@ import '../model/cars.dart';
 import '../model/favorite_list.dart';
 
 class IconButtonFavorite extends StatefulWidget {
-  int carId;
+  final int carId;
   final VoidCallback update;
-  IconButtonFavorite({super.key, required this.carId, required this.update});
+  const IconButtonFavorite({super.key, required this.carId, required this.update});
   @override
   State<IconButtonFavorite> createState() => _IconButtonFavorite(carId);
 }

@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 
-
-
 class GridViewHistoryPaySample extends StatefulWidget {
-  int carId;
+  final int carId;
   final VoidCallback update;
-  GridViewHistoryPaySample({super.key, required this.carId, required this.update});
+  const GridViewHistoryPaySample({super.key, required this.carId, required this.update});
   @override
   State<GridViewHistoryPaySample> createState() => _GridViewHistoryPaySample(carId);
 }

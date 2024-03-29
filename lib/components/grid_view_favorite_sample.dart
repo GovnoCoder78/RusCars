@@ -5,9 +5,9 @@ import '../model/favorite_list.dart';
 import 'icon_button_cart.dart';
 
 class GridViewFavoriteSample extends StatefulWidget {
-  int carId;
+  final int carId;
   final VoidCallback update;
-  GridViewFavoriteSample({super.key, required this.carId, required this.update});
+  const GridViewFavoriteSample({super.key, required this.carId, required this.update});
   @override
   State<GridViewFavoriteSample> createState() => _GridViewFavoriteSample(carId);
 }

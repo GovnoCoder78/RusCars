@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_cart_sample.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/model/sum.dart';
 import 'package:rus_car/pages/history_pay.dart';
-import '../components/list_view_sample_for_card_of_car.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});

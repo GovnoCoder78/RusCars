@@ -5,9 +5,9 @@ import 'icon_button_cart.dart';
 import 'icon_button_favorite.dart';
 
 class GridViewSample extends StatefulWidget {
-  int carId;
+  final int carId;
   final VoidCallback update;
-  GridViewSample({super.key, required this.carId, required this.update});
+  const GridViewSample({super.key, required this.carId, required this.update});
   @override
   State<GridViewSample> createState() => _GridViewSample(carId);
 }
