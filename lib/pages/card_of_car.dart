@@ -18,10 +18,12 @@ class _CardOfCar extends State<CardOfCar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          carsList[id].name,
-          style: const TextStyle(
-            fontSize: 30,
+        title: Expanded(
+          child: Text(
+            carsList[id].name,
+            style: const TextStyle(
+              fontSize: 30,
+            ),
           ),
         ),
         centerTitle: true,

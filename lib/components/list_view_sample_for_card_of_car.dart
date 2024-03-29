@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/components/elevated_button_buy_sample.dart';
 import 'package:rus_car/components/icon_button_favorite.dart';
 import 'package:rus_car/components/list_view_sample_for_description.dart';
 import 'package:rus_car/model/cars.dart';
@@ -103,8 +104,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                   children: [
                     const Expanded(
                       flex: 1,
-                      child:
-                      Text(
+                      child: Text(
                         ' Топливо',
                         style: TextStyle(
                             fontSize: 20
@@ -273,9 +273,8 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                 ),
                 Expanded(
                   flex: 5,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Купить'),
+                  child: ElevatedButtonBuySample(
+                      carId: carId,
                   ),
                 ),
                 Expanded(
@@ -291,27 +290,5 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
         ],
       ),
     );
-  }
-}
-class CartModel with ChangeNotifier {
-  final List<int> _carsInCart = [];
-  final List<int> _favoriteCars = [];
-  List<int> get carsInCart => _carsInCart;
-  List<int> get favoriteCars => _favoriteCars;
-  void addToCart(int carId) {
-    _carsInCart.add(carId);
-    notifyListeners();
-  }
-  void removeFromCart(int carId) {
-    _carsInCart.remove(carId);
-    notifyListeners();
-  }
-  void addToFavorite(int carId) {
-    _favoriteCars.add(carId);
-    notifyListeners();
-  }
-  void removeFromFavorite(int carId) {
-    _favoriteCars.remove(carId);
-    notifyListeners();
   }
 }

@@ -48,12 +48,14 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      carsInCart[carId].name,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        carsInCart[carId].name,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -61,12 +63,14 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      carsInCart[carId].equipment,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        carsInCart[carId].equipment,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -92,7 +96,11 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                               });
                             }
                           },
-                          child: const Text('-'),
+                          child: const Expanded(
+                              child: Text(
+                                  '-',
+                              ),
+                          ),
                         ),
                       ),
                       Expanded(
@@ -110,7 +118,11 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                               carsInCart[carId].isButtonDisabled = false;
                             });
                           },
-                          child: const Text('+'),
+                          child: const Expanded(
+                            child: Text(
+                                '+',
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -120,12 +132,14 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      '${carsInCart[carId].price * carsInCart[carId].count} рублей',
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        '${carsInCart[carId].price * carsInCart[carId].count} рублей',
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -145,8 +159,10 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                         }
                       });
                     },
-                    child: const Text(
-                      'Удалить',
+                    child: const Expanded(
+                        child: Text(
+                          'Удалить',
+                        ),
                     ),
                   ),
                 ),

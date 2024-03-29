@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/components/elevated_button_buy_sample.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 import 'icon_button_cart.dart';
@@ -48,12 +49,14 @@ class _GridViewSample extends State<GridViewSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      carsList[carId].name,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        carsList[carId].name,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -61,12 +64,14 @@ class _GridViewSample extends State<GridViewSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      carsList[carId].equipment,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        carsList[carId].equipment,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -74,12 +79,14 @@ class _GridViewSample extends State<GridViewSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      '${carsList[carId].price} рублей',
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        '${carsList[carId].price} рублей',
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -96,9 +103,8 @@ class _GridViewSample extends State<GridViewSample> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Купить'),
+                        child: ElevatedButtonBuySample(
+                          carId: carId,
                         ),
                       ),
                       Expanded(

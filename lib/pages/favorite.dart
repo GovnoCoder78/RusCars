@@ -16,11 +16,13 @@ class _Favorite extends State<Favorite> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Избранное",
-          style: TextStyle(
-            fontSize: 30,
-          ),
+        title: const Expanded(
+            child: Text(
+              "Избранное",
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
         ),
         backgroundColor: Colors.grey,
         centerTitle: true,

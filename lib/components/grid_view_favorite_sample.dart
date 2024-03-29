@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rus_car/components/elevated_button_buy_sample.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 import '../model/favorite_list.dart';
@@ -46,12 +47,14 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      favoriteCars[carId].name,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        favoriteCars[carId].name,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -59,12 +62,14 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      favoriteCars[carId].equipment,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        favoriteCars[carId].equipment,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -72,12 +77,14 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      '${favoriteCars[carId].price} рублей',
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        '${favoriteCars[carId].price} рублей',
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -111,9 +118,8 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                       ),
                       Expanded(
                         flex: 3,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Купить'),
+                        child: ElevatedButtonBuySample(
+                          carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
                         ),
                       ),
                       Expanded(

@@ -14,11 +14,13 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Российские автомобили",
-          style: TextStyle(
-            fontSize: 28,
-          ),
+        title: const Expanded(
+            child: Text(
+              "Российские автомобили",
+              style: TextStyle(
+                fontSize: 26,
+              ),
+            ),
         ),
         backgroundColor: Colors.grey,
         centerTitle: true,

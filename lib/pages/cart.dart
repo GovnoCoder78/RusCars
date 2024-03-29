@@ -5,6 +5,7 @@ import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/model/sum.dart';
 import 'package:rus_car/pages/history_pay.dart';
+import '../model/cars.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -24,10 +25,12 @@ class _Cart extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Корзина",
-          style: TextStyle(
-            fontSize: 30,
+        title: const Expanded(
+          child: Text(
+            "Корзина",
+            style: TextStyle(
+              fontSize: 30,
+            ),
           ),
         ),
         backgroundColor: Colors.grey,
@@ -69,51 +72,61 @@ class _Cart extends State<Cart> {
             Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        var counter = 0;
-                        while (counter < carsInCart.length) {
-                          if (historyPayCars.indexWhere((element) =>
-                          element.id == counter) != -1) {
-                            historyPayCars[counter].count =
-                                historyPayCars[counter].count +
-                                    carsInCart[counter].count;
-                            counter++;
+                        setState(() {
+                          var counter = 0;
+                          while (counter < carsInCart.length) {
+                            if (historyPayCars.indexWhere((element) =>
+                            element.id == counter) != -1) {
+                              historyPayCars[counter].count =
+                                  historyPayCars[counter].count +
+                                      carsInCart[counter].count;
+                              var id = carsList.firstWhere((element) => element.name == carsInCart[counter].name).id;
+                              carsList[id].statusCartSelected = false;
+                              carsList[id].colorCartButton = Colors.black;
+                              counter++;
+                            }
+                            else {
+                              historyPayCars.add(
+                                  HistoryCars(counter,
+                                      carsInCart[counter].name,
+                                      carsInCart[counter].equipment,
+                                      carsInCart[counter].price,
+                                      carsInCart[counter].characteristics,
+                                      carsInCart[counter].description,
+                                      carsInCart[counter].video,
+                                      carsInCart[counter].images,
+                                      carsInCart[counter].statusFavoriteSelected,
+                                      carsInCart[counter].colorFavoriteButton,
+                                      carsInCart[counter].statusCartSelected,
+                                      carsInCart[counter].colorCartButton,
+                                      carsInCart[counter].count,
+                                      carsInCart[counter].isButtonDisabled
+                                  )
+                              );
+                              var id = carsList.firstWhere((element) => element.name == carsInCart[counter].name).id;
+                              carsList[id].statusCartSelected = false;
+                              carsList[id].colorCartButton = Colors.black;
+                              counter++;
+                            }
                           }
-                          else {
-                            historyPayCars.add(
-                            HistoryCars(counter,
-                                carsInCart[counter].name,
-                                carsInCart[counter].equipment,
-                                carsInCart[counter].price,
-                                carsInCart[counter].characteristics,
-                                carsInCart[counter].description,
-                                carsInCart[counter].video,
-                                carsInCart[counter].images,
-                                carsInCart[counter].statusFavoriteSelected,
-                                carsInCart[counter].colorFavoriteButton,
-                                carsInCart[counter].statusCartSelected,
-                                carsInCart[counter].colorCartButton,
-                                carsInCart[counter].count,
-                                carsInCart[counter].isButtonDisabled
-                            )
-                            );
-                            counter++;
-                          }
-                        }
-                        carsInCart.removeWhere((element) => true);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                            const HistoryPay(
+                          carsInCart.removeWhere((element) => true);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                              const HistoryPay(
+                              ),
+                            ),
+                          );
+                        });
+                      },
+                      child: const Expanded(
+                          child: Text(
+                            'Купить',
+                            style: TextStyle(
+                              fontSize: 30,
                             ),
                           ),
-                        );
-                      },
-                      child: const Text(
-                        'Купить',
-                        style: TextStyle(
-                          fontSize: 30,
-                        ),
                       ),
               ),
             ),

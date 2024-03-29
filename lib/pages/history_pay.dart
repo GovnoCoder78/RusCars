@@ -14,11 +14,13 @@ class _HistoryPay extends State<HistoryPay> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "История покупок",
-          style: TextStyle(
-            fontSize: 30,
-          ),
+        title: const Expanded(
+            child: Text(
+              "История покупок",
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
         ),
         backgroundColor: Colors.grey,
         centerTitle: true,
@@ -47,7 +49,7 @@ class _HistoryPay extends State<HistoryPay> {
       ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: true,
-        favorite: false,
+        favorite: true,
         cart: true,
         historyPay: false,
       ),

@@ -47,12 +47,14 @@ class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      historyPayCars[carId].name,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        historyPayCars[carId].name,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -60,12 +62,14 @@ class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      historyPayCars[carId].equipment,
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        historyPayCars[carId].equipment,
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -73,12 +77,14 @@ class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      'В количестве ${historyPayCars[carId].count} штук',
-                      style: const TextStyle(
-                        fontSize: 18,
+                    child: Expanded(
+                      child: Text(
+                        'В количестве ${historyPayCars[carId].count} штук',
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -86,12 +92,14 @@ class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text(
-                      '${historyPayCars[carId].price * historyPayCars[carId].count} рублей',
-                      style: const TextStyle(
-                        fontSize: 21,
+                    child: Expanded(
+                      child: Text(
+                        '${historyPayCars[carId].price * historyPayCars[carId].count} рублей',
+                        style: const TextStyle(
+                          fontSize: 21,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
