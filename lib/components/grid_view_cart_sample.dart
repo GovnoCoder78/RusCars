@@ -28,7 +28,8 @@ class _GridViewCartSample extends State<GridViewCartSample> {
               context,
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
-                  id: carId, update: widget.updateSum,
+                  id: carsList.firstWhere((element) => element.name == carsInCart[carId].name).id,
+                  update: widget.updateSum,
                 ),
               ),
             );

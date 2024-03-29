@@ -26,7 +26,7 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
               context,
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
-                  id: carId,
+                  id: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
                   update: widget.update,
                 ),
               ),

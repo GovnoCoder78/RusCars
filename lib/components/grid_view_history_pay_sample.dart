@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/pages/card_of_car.dart';
+import '../model/cars.dart';
 
 class GridViewHistoryPaySample extends StatefulWidget {
   final int carId;
@@ -26,7 +27,7 @@ class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
               context,
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
-                  id: carId,
+                  id: carsList.firstWhere((element) => element.name == historyPayCars[carId].name).id,
                   update: widget.update,
                 ),
               ),
