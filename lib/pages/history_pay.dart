@@ -3,8 +3,13 @@ import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_history_pay_sample.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 
-class HistoryPay extends StatelessWidget {
-  const HistoryPay({Key? key}) : super(key: key);
+
+class HistoryPay extends StatefulWidget {
+  const HistoryPay({super.key});
+  @override
+  State<HistoryPay> createState() => _HistoryPay();
+}
+class _HistoryPay extends State<HistoryPay> {
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,7 @@ class HistoryPay extends StatelessWidget {
             itemBuilder: (BuildContext context, index) {
               return GridViewHistoryPaySample(
                 carId: historyPayCars[index].id,
+                update: update,
               );
             },
           ),
@@ -47,5 +53,8 @@ class HistoryPay extends StatelessWidget {
         historyPay: false,
       ),
     );
+  }
+  void update() {
+    setState(() {});
   }
 }

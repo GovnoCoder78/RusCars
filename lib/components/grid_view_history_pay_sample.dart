@@ -2,9 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 
-class GridViewHistoryPaySample extends StatelessWidget {
+
+
+class GridViewHistoryPaySample extends StatefulWidget {
+  int carId;
+  final VoidCallback update;
+  GridViewHistoryPaySample({super.key, required this.carId, required this.update});
+  @override
+  State<GridViewHistoryPaySample> createState() => _GridViewHistoryPaySample(carId);
+}
+class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
   final int carId;
-  const GridViewHistoryPaySample({Key? key, required this.carId}) : super(key: key);
+
+  _GridViewHistoryPaySample(this.carId);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,6 +29,7 @@ class GridViewHistoryPaySample extends StatelessWidget {
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
                   id: carId,
+                  update: widget.update,
                 ),
               ),
             );

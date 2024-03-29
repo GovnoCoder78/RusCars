@@ -1,3 +1,27 @@
-import 'package:rus_car/model/cars.dart';
+class CarsFavorite {
+  int id;
+  String name;
+  String equipment;
+  int price;
+  String description;
+  List characteristics;
+  String video;
+  List images;
+  int count;
+  bool isButtonDisabled;
 
-List<Cars> favoriteCars = [];
+  CarsFavorite(
+      this.id,
+      this.name,
+      this.equipment,
+      this.price,
+      this.characteristics,
+      this.description,
+      this.video,
+      this.images,
+      this.count,
+      this.isButtonDisabled
+      );
+}
+
+List<CarsFavorite> favoriteCars = [];

@@ -3,8 +3,13 @@ import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_sample.dart';
 import 'package:rus_car/model/cars.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+  @override
+  State<HomePage> createState() => _HomePage();
+}
+class _HomePage extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +39,7 @@ class HomePage extends StatelessWidget {
             itemBuilder: (BuildContext context, index) {
               return GridViewSample(
                 carId: carsList[index].id,
+                update: update,
               );
             },
           ),
@@ -46,5 +52,8 @@ class HomePage extends StatelessWidget {
         historyPay: true,
       ),
     );
+  }
+  void update() {
+    setState(() {});
   }
 }

@@ -3,7 +3,6 @@ import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/grid_view_favorite_sample.dart';
 import 'package:rus_car/model/favorite_list.dart';
 
-
 class Favorite extends StatefulWidget {
   const Favorite({super.key});
 

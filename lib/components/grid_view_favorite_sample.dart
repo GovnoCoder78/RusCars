@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 import '../model/favorite_list.dart';
-import 'list_view_sample_for_card_of_car.dart';
 
 class GridViewFavoriteSample extends StatefulWidget {
-  final int carId;
+  int carId;
   final VoidCallback update;
-  const GridViewFavoriteSample({super.key, required this.carId, required this.update});
+  GridViewFavoriteSample({super.key, required this.carId, required this.update});
   @override
   State<GridViewFavoriteSample> createState() => _GridViewFavoriteSample(carId);
 }
@@ -28,6 +26,7 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
                   id: carId,
+                  update: widget.update,
                 ),
               ),
             );
@@ -39,7 +38,7 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                 Expanded(
                   flex: 2,
                   child: Image.network(
-                    carsList[carId].images[0],
+                    favoriteCars[carId].images[0],
                   ),
                 ),
                 Expanded(
@@ -47,7 +46,7 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[carId].name,
+                      favoriteCars[carId].name,
                       style: const TextStyle(
                         fontSize: 21,
                       ),
@@ -60,7 +59,7 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      carsList[carId].equipment,
+                      favoriteCars[carId].equipment,
                       style: const TextStyle(
                         fontSize: 21,
                       ),
@@ -73,7 +72,7 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      '${carsList[carId].price} рублей',
+                      '${favoriteCars[carId].price} рублей',
                       style: const TextStyle(
                         fontSize: 21,
                       ),
@@ -82,19 +81,37 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   ),
                 ),
                 Expanded(
-                  child: Consumer<CartModel>(
-                    builder: (context, cart, child) {
-                      return ElevatedButton(
-                        onPressed: () {
-                          favoriteCars.removeWhere((element) => element.id == carId);
-                          widget.update();
-                          cart.removeFromFavorite(carId);
-                        },
-                        child: const Text(
-                          'Удалить',
-                        ),
-                      );
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        carsList.removeWhere((element) => element.id == carId);
+                        carsList.add(Cars(carId,
+                            carsList[carId].name,
+                            carsList[carId].equipment,
+                            carsList[carId].price,
+                            carsList[carId].characteristics,
+                            carsList[carId].description,
+                            carsList[carId].video,
+                            carsList[carId].images,
+                            false,
+                            Colors.black,
+                            carsList[carId].statusCartSelected,
+                            carsList[carId].colorCartButton,
+                            carsList[carId].count,
+                            carsList[carId].isButtonDisabled
+                        ));
+                        favoriteCars.removeWhere((element) => element.id == carId);
+                        widget.update();
+                        var counter = 0;
+                        while (counter < favoriteCars.length) {
+                          favoriteCars[counter].id = counter;
+                          counter++;
+                        }
+                      });
                     },
+                    child: const Text(
+                      'Удалить',
+                    ),
                   ),
                 ),
               ],

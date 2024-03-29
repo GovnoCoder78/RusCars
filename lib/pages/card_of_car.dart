@@ -3,9 +3,16 @@ import 'package:rus_car/components/bottom_app_bar_sample.dart';
 import 'package:rus_car/components/list_view_sample_for_card_of_car.dart';
 import 'package:rus_car/model/cars.dart';
 
-class CardOfCar extends StatelessWidget {
+class CardOfCar extends StatefulWidget {
+  int id;
+  final VoidCallback update;
+  CardOfCar({super.key, required this.id, required this.update});
+  @override
+  State<CardOfCar> createState() => _CardOfCar(id);
+}
+class _CardOfCar extends State<CardOfCar> {
   final int id;
-  const CardOfCar({Key? key, required this.id}) : super(key: key);
+  _CardOfCar(this.id);
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +37,7 @@ class CardOfCar extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return ListViewSampleForCardOfCar(
                 carId: id,
+                update: widget.update,
               );
             },
           ),

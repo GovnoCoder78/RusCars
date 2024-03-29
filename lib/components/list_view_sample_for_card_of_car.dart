@@ -4,12 +4,12 @@ import 'package:rus_car/components/list_view_sample_for_description.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:rus_car/model/youtube.dart';
-
 import 'icon_button_cart.dart';
 
 class ListViewSampleForCardOfCar extends StatefulWidget {
   int carId;
-  ListViewSampleForCardOfCar({super.key, required this.carId});
+  final VoidCallback update;
+  ListViewSampleForCardOfCar({super.key, required this.carId, required this.update});
   @override
   State<ListViewSampleForCardOfCar> createState() => _ListViewSampleForCardOfCarState(carId);
 }
@@ -267,7 +267,8 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                 Expanded(
                   flex: 1,
                   child: IconButtonFavorite(
-                      carId: carId,
+                    carId: carId,
+                    update: widget.update,
                   ),
                 ),
                 Expanded(
@@ -281,6 +282,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
                   flex: 1,
                   child: IconButtonCart(
                     carId: carId,
+                    update: widget.update,
                   ),
                 ),
               ],

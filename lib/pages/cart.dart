@@ -69,9 +69,7 @@ class _Cart extends State<Cart> {
               ),
             ),
             Expanded(
-              child: Consumer<CartModel>(
-                  builder: (context, cart, child) {
-                    return ElevatedButton(
+                    child: ElevatedButton(
                       onPressed: () {
                         var counter = 0;
                         while (counter < carsInCart.length) {
@@ -80,7 +78,6 @@ class _Cart extends State<Cart> {
                             historyPayCars[counter].count =
                                 historyPayCars[counter].count +
                                     carsInCart[counter].count;
-                            cart.removeFromCart(counter);
                             counter++;
                           }
                           else {
@@ -97,7 +94,6 @@ class _Cart extends State<Cart> {
                                 carsInCart[counter].isButtonDisabled
                             )
                             );
-                            cart.removeFromCart(counter);
                             counter++;
                           }
                         }
@@ -117,8 +113,6 @@ class _Cart extends State<Cart> {
                           fontSize: 30,
                         ),
                       ),
-                    );
-                  }
               ),
             ),
           ],

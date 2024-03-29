@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/pages/card_of_car.dart';
-import 'list_view_sample_for_card_of_car.dart';
+import '../model/cars.dart';
 
 class GridViewCartSample extends StatefulWidget {
   int carId;
@@ -29,7 +28,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
               context,
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
-                  id: carId,
+                  id: carId, update: widget.updateSum,
                 ),
               ),
             );
@@ -130,26 +129,23 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   ),
                 ),
                 Expanded(
-                  child: Consumer<CartModel>(
-                    builder: (context, cart, child) {
-                      return ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            carsInCart.removeWhere((element) => element.id == carId);
-                            widget.updateSum();
-                            cart.removeFromCart(carId);
-                            var counter = 0;
-                            while (counter < carsInCart.length) {
-                              carsInCart[counter].id = counter;
-                              counter++;
-                            }
-                          });
-                        },
-                        child: const Text(
-                          'Удалить',
-                        ),
-                      );
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        carsList[carId].statusFavoriteSelected = false;
+                        carsList[carId].colorFavoriteButton = Colors.black;
+                        carsInCart.removeWhere((element) => element.id == carId);
+                        widget.updateSum();
+                        var counter = 0;
+                        while (counter < carsInCart.length) {
+                          carsInCart[counter].id = counter;
+                          counter++;
+                        }
+                      });
                     },
+                    child: const Text(
+                      'Удалить',
+                    ),
                   ),
                 ),
               ],

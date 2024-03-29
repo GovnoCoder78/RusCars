@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
-
 import 'icon_button_cart.dart';
 import 'icon_button_favorite.dart';
 
-class GridViewSample extends StatelessWidget {
+class GridViewSample extends StatefulWidget {
+  int carId;
+  final VoidCallback update;
+  GridViewSample({super.key, required this.carId, required this.update});
+  @override
+  State<GridViewSample> createState() => _GridViewSample(carId);
+}
+class _GridViewSample extends State<GridViewSample> {
   final int carId;
-  const GridViewSample({Key? key, required this.carId}) : super(key: key);
+
+  _GridViewSample(this.carId);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,6 +29,7 @@ class GridViewSample extends StatelessWidget {
               MaterialPageRoute(
                 builder: (context) => CardOfCar(
                   id: carId,
+                  update: widget.update,
                 ),
               ),
             );
@@ -82,6 +91,7 @@ class GridViewSample extends StatelessWidget {
                         flex: 1,
                         child: IconButtonFavorite(
                           carId: carId,
+                          update: widget.update,
                         ),
                       ),
                       Expanded(
@@ -95,6 +105,7 @@ class GridViewSample extends StatelessWidget {
                         flex: 1,
                         child: IconButtonCart(
                           carId: carId,
+                          update: widget.update,
                         ),
                       ),
                     ],
