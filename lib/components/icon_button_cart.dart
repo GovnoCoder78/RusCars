@@ -33,6 +33,10 @@ class _IconButtonCart extends State<IconButtonCart> {
                   carsList[carId].description,
                   carsList[carId].video,
                   carsList[carId].images,
+                  carsList[carId].statusFavoriteSelected,
+                  carsList[carId].colorFavoriteButton,
+                  carsList[carId].statusCartSelected,
+                  carsList[carId].colorCartButton,
                   carsList[carId].count,
                   carsList[carId].isButtonDisabled
               ));
@@ -42,11 +46,16 @@ class _IconButtonCart extends State<IconButtonCart> {
             widget.update;
           });
         } else {
-          carsInCart.removeWhere((element) => element.id == carId);
+          carsInCart.removeWhere((element) => element.name == carsList[carId].name);
           carsList[carId].colorCartButton = Colors.black;
           setState(() {
             carsList[carId].statusCartSelected = !carsList[carId].statusCartSelected;
             widget.update;
+            var counter = 0;
+            while (counter < carsInCart.length) {
+              carsInCart[counter].id = counter;
+              counter++;
+            }
           });
         }
       },

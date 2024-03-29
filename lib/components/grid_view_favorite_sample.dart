@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
 import 'package:rus_car/pages/card_of_car.dart';
 import '../model/favorite_list.dart';
+import 'icon_button_cart.dart';
 
 class GridViewFavoriteSample extends StatefulWidget {
   int carId;
@@ -81,37 +82,48 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                   ),
                 ),
                 Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        carsList.removeWhere((element) => element.id == carId);
-                        carsList.add(Cars(carId,
-                            carsList[carId].name,
-                            carsList[carId].equipment,
-                            carsList[carId].price,
-                            carsList[carId].characteristics,
-                            carsList[carId].description,
-                            carsList[carId].video,
-                            carsList[carId].images,
-                            false,
-                            Colors.black,
-                            carsList[carId].statusCartSelected,
-                            carsList[carId].colorCartButton,
-                            carsList[carId].count,
-                            carsList[carId].isButtonDisabled
-                        ));
-                        favoriteCars.removeWhere((element) => element.id == carId);
-                        widget.update();
-                        var counter = 0;
-                        while (counter < favoriteCars.length) {
-                          favoriteCars[counter].id = counter;
-                          counter++;
-                        }
-                      });
-                    },
-                    child: const Text(
-                      'Удалить',
-                    ),
+                  flex: 1,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: IconButton(
+                            tooltip: 'Избранное',
+                            icon: const Icon(Icons.favorite),
+                            selectedIcon: const Icon(Icons.favorite),
+                            isSelected: carsList[carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id].statusFavoriteSelected,
+                            color: carsList[carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id].colorFavoriteButton,
+                            onPressed: () {
+                              setState(() {
+                                var id = carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id;
+                                carsList[id].statusFavoriteSelected = false;
+                                carsList[id].colorFavoriteButton = Colors.black;
+                                favoriteCars.removeWhere((element) => element.id == carId);
+                                widget.update();
+                                var counter = 0;
+                                while (counter < favoriteCars.length) {
+                                  favoriteCars[counter].id = counter;
+                                  counter++;
+                                }
+                              });
+                            }
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('Купить'),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: IconButtonCart(
+                          carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
+                          update: widget.update,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

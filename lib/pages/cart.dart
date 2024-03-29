@@ -90,6 +90,10 @@ class _Cart extends State<Cart> {
                                 carsInCart[counter].description,
                                 carsInCart[counter].video,
                                 carsInCart[counter].images,
+                                carsInCart[counter].statusFavoriteSelected,
+                                carsInCart[counter].colorFavoriteButton,
+                                carsInCart[counter].statusCartSelected,
+                                carsInCart[counter].colorCartButton,
                                 carsInCart[counter].count,
                                 carsInCart[counter].isButtonDisabled
                             )

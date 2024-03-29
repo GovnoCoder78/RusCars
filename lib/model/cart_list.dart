@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 class CarsCart {
   int id;
   String name;
@@ -7,6 +9,10 @@ class CarsCart {
   List characteristics;
   String video;
   List images;
+  bool statusFavoriteSelected;
+  Color colorFavoriteButton;
+  bool statusCartSelected;
+  Color colorCartButton;
   int count;
   bool isButtonDisabled;
 
@@ -19,6 +25,10 @@ class CarsCart {
       this.description,
       this.video,
       this.images,
+      this.statusFavoriteSelected,
+      this.colorFavoriteButton,
+      this.statusCartSelected,
+      this.colorCartButton,
       this.count,
       this.isButtonDisabled
       );

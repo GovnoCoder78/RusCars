@@ -132,8 +132,9 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                   child: ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        carsList[carId].statusFavoriteSelected = false;
-                        carsList[carId].colorFavoriteButton = Colors.black;
+                        var id = carsList.firstWhere((element) => element.name == carsInCart[carId].name).id;
+                        carsList[id].statusCartSelected = false;
+                        carsList[id].colorCartButton = Colors.black;
                         carsInCart.removeWhere((element) => element.id == carId);
                         widget.updateSum();
                         var counter = 0;

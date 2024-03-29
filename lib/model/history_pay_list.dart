@@ -9,6 +9,10 @@ class HistoryCars {
   List characteristics;
   String video;
   List images;
+  bool statusFavoriteSelected;
+  Color colorFavoriteButton;
+  bool statusCartSelected;
+  Color colorCartButton;
   int count;
   bool isButtonDisabled;
 
@@ -21,6 +25,10 @@ class HistoryCars {
       this.description,
       this.video,
       this.images,
+      this.statusFavoriteSelected,
+      this.colorFavoriteButton,
+      this.statusCartSelected,
+      this.colorCartButton,
       this.count,
       this.isButtonDisabled
       );
