@@ -36,56 +36,75 @@ class _GridViewSample extends State<GridViewSample> {
         },
         child: Container(
           color: Colors.black12,
-          child:Column(
+          child: Column(
             children: [
-                Image.network(
+              Expanded(
+                flex: 2,
+                child: Image.network(
                   carsList[carId].images[0],
-                ),
-              Container(
-                alignment: Alignment.center,
-                child: Text(
-                  carsList[carId].name,
-                  style: const TextStyle(
-                    fontSize: 21,
-                  ),
-                  textAlign: TextAlign.center,
+                  fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                child: Text(
-                  carsList[carId].equipment,
-                  style: const TextStyle(
-                    fontSize: 21,
+              Expanded(
+                flex: 1,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    carsList[carId].name,
+                    style: const TextStyle(
+                      fontSize: 21,
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                child: Text(
-                  '${carsList[carId].price} рублей',
-                  style: const TextStyle(
-                    fontSize: 21,
+              Expanded(
+                flex: 1,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    carsList[carId].equipment,
+                    style: const TextStyle(
+                      fontSize: 21,
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
-                Row(
+              Expanded(
+                flex: 1,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '${carsList[carId].price} рублей',
+                    style: const TextStyle(
+                      fontSize: 21,
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
                   children: [
-                      IconButtonFavorite(
-                        carId: carId,
-                        update: widget.update,
-                      ),
-                      ElevatedButtonBuySample(
-                        carId: carId,
-                      ),
-                      IconButtonCart(
-                        carId: carId,
-                        update: widget.update,
-                      ),
+                    IconButtonFavorite(
+                      carId: carId,
+                      update: widget.update,
+                    ),
+                    ElevatedButtonBuySample(
+                      carId: carId,
+                    ),
+                    IconButtonCart(
+                      carId: carId,
+                      update: widget.update,
+                    ),
                   ],
                 ),
+              ),
             ],
           ),
         ),

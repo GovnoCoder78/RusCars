@@ -21,8 +21,7 @@ class BottomAppBarSample extends StatelessWidget {
       color: Colors.blueGrey,
       child: Row(
         children: [
-          Expanded(
-            child: IconButton(
+          IconButton(
               tooltip: 'Главная',
               icon: const Icon(Icons.car_crash),
               onPressed: () {
@@ -37,9 +36,7 @@ class BottomAppBarSample extends StatelessWidget {
                 }
               },
             ),
-          ),
-          Expanded(
-            child: IconButton(
+          IconButton(
               tooltip: 'Избранное',
               icon: const Icon(Icons.favorite),
               onPressed: () {
@@ -55,9 +52,7 @@ class BottomAppBarSample extends StatelessWidget {
                 }
               },
             ),
-          ),
-          Expanded(
-            child: IconButton(
+           IconButton(
               tooltip: 'Корзина',
               icon: const Icon(Icons.shopping_cart),
               onPressed: () {
@@ -73,9 +68,7 @@ class BottomAppBarSample extends StatelessWidget {
                 }
               },
             ),
-          ),
-          Expanded(
-            child: IconButton(
+           IconButton(
               tooltip: 'История покупок',
               icon: const Icon(Icons.history),
               onPressed: () {
@@ -91,7 +84,6 @@ class BottomAppBarSample extends StatelessWidget {
                 }
               },
             ),
-          ),
         ],
       ),
     );

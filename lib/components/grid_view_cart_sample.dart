@@ -38,18 +38,12 @@ class _GridViewCartSample extends State<GridViewCartSample> {
             color: Colors.black12,
             child:Column(
               children: [
-                Expanded(
-                  flex: 2,
-                  child: Image.network(
+                Image.network(
                     carsInCart[carId].images[0],
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
+                Container(
                     alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
+                    child: Text(
                         carsInCart[carId].name,
                         style: const TextStyle(
                           fontSize: 21,
@@ -57,14 +51,9 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
+                Container(
                     alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
+                    child:  Text(
                         carsInCart[carId].equipment,
                         style: const TextStyle(
                           fontSize: 21,
@@ -72,14 +61,9 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Row(
+                 Row(
                     children: [
-                      Expanded(
-                        child: ElevatedButton(
+                      ElevatedButton(
                           onPressed: carsInCart[carId].isButtonDisabled ? null : () {
                             if (carsInCart[carId].count < 1) {}
                             else if (carsInCart[carId].count == 2) {
@@ -96,21 +80,15 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                               });
                             }
                           },
-                          child: const Expanded(
-                              child: Text(
+                          child: const Text(
                                   '-',
                               ),
                           ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
+                       Text(
                           carsInCart[carId].count.toString(),
                           textAlign: TextAlign.center,
                         ),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
+                       ElevatedButton(
                           onPressed: () {
                             setState(() {
                               carsInCart[carId].count++;
@@ -118,22 +96,15 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                               carsInCart[carId].isButtonDisabled = false;
                             });
                           },
-                          child: const Expanded(
-                            child: Text(
+                          child: const Text(
                                 '+',
                             ),
                           ),
-                        ),
-                      ),
                     ],
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
+               Container(
                     alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
+                    child: Text(
                         '${carsInCart[carId].price * carsInCart[carId].count} рублей',
                         style: const TextStyle(
                           fontSize: 21,
@@ -141,10 +112,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: ElevatedButton(
+                ElevatedButton(
                     onPressed: () {
                       setState(() {
                         var id = carsList.firstWhere((element) => element.name == carsInCart[carId].name).id;
@@ -159,13 +127,10 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                         }
                       });
                     },
-                    child: const Expanded(
-                        child: Text(
+                    child: const Text(
                           'Удалить',
                         ),
                     ),
-                  ),
-                ),
               ],
             ),
           ),

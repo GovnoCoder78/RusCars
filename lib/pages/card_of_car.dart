@@ -18,26 +18,26 @@ class _CardOfCar extends State<CardOfCar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Expanded(
-          child: Text(
-            carsList[id].name,
-            style: const TextStyle(
-              fontSize: 30,
-            ),
+        title: Text(
+          carsList[id].name,
+          style: const TextStyle(
+            fontSize: 30,
           ),
         ),
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
-      body: ListView.builder(
-            itemCount: 1,
-            itemBuilder: (BuildContext context, int index) {
-              return ListViewSampleForCardOfCar(
-                carId: id,
-                update: widget.update,
-              );
-            },
-          ),
+      body: Expanded(
+        child: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (BuildContext context, int index) {
+            return ListViewSampleForCardOfCar(
+              carId: id,
+              update: widget.update,
+            );
+          },
+        ),
+      ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: true,
         favorite: true,

@@ -25,14 +25,12 @@ class _Cart extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Expanded(
-          child: Text(
+        title: const Text(
             "Корзина",
             style: TextStyle(
               fontSize: 30,
             ),
           ),
-        ),
         backgroundColor: Colors.grey,
         centerTitle: true,
       ),
@@ -41,9 +39,7 @@ class _Cart extends State<Cart> {
         color: Colors.black26,
         child: Column(
           children: [
-            Expanded(
-              flex: 10,
-              child: GridView.builder(
+            GridView.builder(
                 padding: const EdgeInsets.all(5),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
@@ -59,18 +55,13 @@ class _Cart extends State<Cart> {
                   );
                 },
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Text(
+            Text(
                 '$sum рублей',
                 style: const TextStyle(
                   fontSize: 30,
                 ),
               ),
-            ),
-            Expanded(
-                    child: ElevatedButton(
+            ElevatedButton(
                       onPressed: () {
                         setState(() {
                           var counter = 0;
@@ -120,15 +111,12 @@ class _Cart extends State<Cart> {
                           );
                         });
                       },
-                      child: const Expanded(
-                          child: Text(
+                      child: const Text(
                             'Купить',
                             style: TextStyle(
                               fontSize: 30,
                             ),
-                          ),
                       ),
-              ),
             ),
           ],
         ),

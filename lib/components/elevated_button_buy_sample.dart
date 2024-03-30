@@ -27,11 +27,9 @@ class _ElevatedButtonBuySample extends State<ElevatedButtonBuySample> {
           },
         );
       },
-      child: const Expanded(
-        child: Text(
+      child: const Text(
           'Купить',
         ),
-      ),
     );
   }
 }

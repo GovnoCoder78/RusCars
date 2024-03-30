@@ -37,18 +37,12 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
             color: Colors.black12,
             child:Column(
               children: [
-                Expanded(
-                  flex: 2,
-                  child: Image.network(
+                Image.network(
                     favoriteCars[carId].images[0],
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
+                Container(
                     alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
+                    child: Text(
                         favoriteCars[carId].name,
                         style: const TextStyle(
                           fontSize: 21,
@@ -56,14 +50,9 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
+                Container(
                     alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
+                    child: Text(
                         favoriteCars[carId].equipment,
                         style: const TextStyle(
                           fontSize: 21,
@@ -71,14 +60,9 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
+                 Container(
                     alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
+                    child: Text(
                         '${favoriteCars[carId].price} рублей',
                         style: const TextStyle(
                           fontSize: 21,
@@ -86,15 +70,9 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Row(
+                Row(
                     children: [
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
+                      IconButton(
                             tooltip: 'Избранное',
                             icon: const Icon(Icons.favorite),
                             selectedIcon: const Icon(Icons.favorite),
@@ -115,23 +93,15 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
                               });
                             }
                         ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: ElevatedButtonBuySample(
+                      ElevatedButtonBuySample(
                           carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
                         ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButtonCart(
+                      IconButtonCart(
                           carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
                           update: widget.update,
                         ),
-                      ),
                     ],
                   ),
-                ),
               ],
             ),
           ),
