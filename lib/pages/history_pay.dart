@@ -25,16 +25,12 @@ class _HistoryPay extends State<HistoryPay> {
         backgroundColor: Colors.grey,
         centerTitle: true,
       ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.black26,
-        child: Expanded(
-          flex: 1,
-          child: GridView.builder(
+      body:
+          GridView.builder(
             padding: const EdgeInsets.all(5),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
-                childAspectRatio: 2 / 3,
+                childAspectRatio: 0.55,
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5),
             itemCount: historyPayCars.length,
@@ -45,8 +41,6 @@ class _HistoryPay extends State<HistoryPay> {
               );
             },
           ),
-        ),
-      ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: true,
         favorite: true,

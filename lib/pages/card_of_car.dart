@@ -29,12 +29,7 @@ class _CardOfCar extends State<CardOfCar> {
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.black12,
-        child: Expanded(
-          flex: 1,
-          child: ListView.builder(
+      body: ListView.builder(
             itemCount: 1,
             itemBuilder: (BuildContext context, int index) {
               return ListViewSampleForCardOfCar(
@@ -43,8 +38,6 @@ class _CardOfCar extends State<CardOfCar> {
               );
             },
           ),
-        ),
-      ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: true,
         favorite: true,

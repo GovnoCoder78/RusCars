@@ -47,7 +47,7 @@ class _Cart extends State<Cart> {
                 padding: const EdgeInsets.all(5),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
-                  childAspectRatio: 2 / 3,
+                  childAspectRatio: 0.55,
                   crossAxisSpacing: 5,
                   mainAxisSpacing: 5,
                 ),
@@ -75,10 +75,10 @@ class _Cart extends State<Cart> {
                         setState(() {
                           var counter = 0;
                           while (counter < carsInCart.length) {
-                            if (historyPayCars.indexWhere((element) =>
-                            element.id == counter) != -1) {
-                              historyPayCars[counter].count =
-                                  historyPayCars[counter].count +
+                            var existingCar = historyPayCars.where((element) => element.name == carsInCart[counter].name);
+                            if (existingCar.isNotEmpty) {
+                              historyPayCars[historyPayCars.firstWhere((element) => element.name == carsInCart[counter].name).id].count =
+                                  historyPayCars[historyPayCars.firstWhere((element) => element.name == carsInCart[counter].name).id].count +
                                       carsInCart[counter].count;
                               var id = carsList.firstWhere((element) => element.name == carsInCart[counter].name).id;
                               carsList[id].statusCartSelected = false;
@@ -87,7 +87,7 @@ class _Cart extends State<Cart> {
                             }
                             else {
                               historyPayCars.add(
-                                  HistoryCars(counter,
+                                  HistoryCars(historyPayCars.length,
                                       carsInCart[counter].name,
                                       carsInCart[counter].equipment,
                                       carsInCart[counter].price,

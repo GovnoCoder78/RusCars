@@ -12,6 +12,7 @@ class GridViewSample extends StatefulWidget {
   @override
   State<GridViewSample> createState() => _GridViewSample(carId);
 }
+
 class _GridViewSample extends State<GridViewSample> {
   final int carId;
 
@@ -19,106 +20,73 @@ class _GridViewSample extends State<GridViewSample> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Card(
-        clipBehavior: Clip.hardEdge,
-        child: InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => CardOfCar(
-                  id: carId,
-                  update: widget.update,
+    return Card(
+      clipBehavior: Clip.hardEdge,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CardOfCar(
+                id: carId,
+                update: widget.update,
+              ),
+            ),
+          );
+        },
+        child: Container(
+          color: Colors.black12,
+          child:Column(
+            children: [
+                Image.network(
+                  carsList[carId].images[0],
+                ),
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  carsList[carId].name,
+                  style: const TextStyle(
+                    fontSize: 21,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
-            );
-          },
-          child: Container(
-            color: Colors.black12,
-            child:Column(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Image.network(
-                    carsList[carId].images[0],
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  carsList[carId].equipment,
+                  style: const TextStyle(
+                    fontSize: 21,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
-                        carsList[carId].name,
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: Text(
+                  '${carsList[carId].price} рублей',
+                  style: const TextStyle(
+                    fontSize: 21,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
-                        carsList[carId].equipment,
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
+              ),
+                Row(
+                  children: [
+                      IconButtonFavorite(
+                        carId: carId,
+                        update: widget.update,
                       ),
-                    ),
-                  ),
+                      ElevatedButtonBuySample(
+                        carId: carId,
+                      ),
+                      IconButtonCart(
+                        carId: carId,
+                        update: widget.update,
+                      ),
+                  ],
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Expanded(
-                      child: Text(
-                        '${carsList[carId].price} рублей',
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: IconButtonFavorite(
-                          carId: carId,
-                          update: widget.update,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: ElevatedButtonBuySample(
-                          carId: carId,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButtonCart(
-                          carId: carId,
-                          update: widget.update,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            ],
           ),
         ),
       ),

@@ -143,8 +143,8 @@ class _AlertDialogSample extends State<AlertDialogSample> {
         ),
         ElevatedButton(
           onPressed: () {
-            if (historyPayCars.indexWhere((element) =>
-            element.name == historyPayCars.firstWhere((element) => element.name == carsList[widget.carId].name).name) != -1) {
+            var existingCar = historyPayCars.where((element) => element.name == carsList[widget.carId].name);
+            if (existingCar.isNotEmpty) {
               historyPayCars[historyPayCars.firstWhere((element) => element.name == carsList[widget.carId].name).id].count =
                   historyPayCars[historyPayCars.firstWhere((element) => element.name == carsList[widget.carId].name).id].count +
                       carsList[widget.carId].count;

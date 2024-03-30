@@ -14,27 +14,21 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Expanded(
-            child: Text(
-              "Российские автомобили",
-              style: TextStyle(
-                fontSize: 26,
-              ),
-            ),
+        title: const Text(
+          "Российские автомобили",
+          style: TextStyle(
+            fontSize: 26,
+          ),
         ),
         backgroundColor: Colors.grey,
         centerTitle: true,
       ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.black26,
-        child: Expanded(
-          flex: 1,
-          child: GridView.builder(
+
+      body: GridView.builder(
             padding: const EdgeInsets.all(5),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
-                childAspectRatio: 2 / 3,
+                childAspectRatio: 0.6,
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5),
             itemCount: carsList.length,
@@ -45,8 +39,6 @@ class _HomePage extends State<HomePage> {
               );
             },
           ),
-        ),
-      ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: false,
         favorite: true,
