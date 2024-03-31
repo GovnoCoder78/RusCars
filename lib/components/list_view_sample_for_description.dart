@@ -7,11 +7,13 @@ class ListViewSampleForDescription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return SingleChildScrollView(
+      child: Text(
         carsList[id].description,
         style: const TextStyle(
           fontSize: 20,
         ),
+      ),
     );
   }
 }

@@ -51,8 +51,11 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
             ),
             textAlign: TextAlign.center,
           ),
-          ListViewSampleForDescription(
-            id: carId,
+          SizedBox(
+            height: 200,
+            child: ListViewSampleForDescription(
+              id: carId,
+            ),
           ),
           Table(
             border: TableBorder.all(),
@@ -193,16 +196,23 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
           ),
           Row(
             children: [
-              IconButtonFavorite(
-                carId: carId,
-                update: widget.update,
+              Expanded(
+                child: IconButtonFavorite(
+                  carId: carId,
+                  update: widget.update,
+                ),
               ),
-              ElevatedButtonBuySample(
-                carId: carId,
+              Expanded(
+                flex: 5,
+                child: ElevatedButtonBuySample(
+                  carId: carId,
+                ),
               ),
-              IconButtonCart(
-                carId: carId,
-                update: widget.update,
+              Expanded(
+                child: IconButtonCart(
+                  carId: carId,
+                  update: widget.update,
+                ),
               ),
             ],
           ),

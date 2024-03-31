@@ -21,69 +21,77 @@ class BottomAppBarSample extends StatelessWidget {
       color: Colors.blueGrey,
       child: Row(
         children: [
-          IconButton(
-              tooltip: 'Главная',
-              icon: const Icon(Icons.car_crash),
-              onPressed: () {
-                if (homePage == true) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(
+          Expanded(
+              child: IconButton(
+                tooltip: 'Главная',
+                icon: const Icon(Icons.car_crash),
+                onPressed: () {
+                  if (homePage == true) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(
+                        ),
                       ),
-                    ),
-                  );
-                }
-              },
-            ),
-          IconButton(
-              tooltip: 'Избранное',
-              icon: const Icon(Icons.favorite),
-              onPressed: () {
-                if (favorite == true) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                      const Favorite(
+                    );
+                  }
+                },
+              ),
+          ),
+          Expanded(
+              child: IconButton(
+                tooltip: 'Избранное',
+                icon: const Icon(Icons.favorite),
+                onPressed: () {
+                  if (favorite == true) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                        const Favorite(
+                        ),
                       ),
-                    ),
-                  );
-                }
-              },
-            ),
-           IconButton(
-              tooltip: 'Корзина',
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () {
-                if (cart == true) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                      const Cart(
-                      ),
-                    ),
-                  );
-                }
-              },
-            ),
-           IconButton(
-              tooltip: 'История покупок',
-              icon: const Icon(Icons.history),
-              onPressed: () {
-                if (historyPay == true) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                      const HistoryPay(
-                      ),
-                    ),
-                  );
-                }
-              },
-            ),
+                    );
+                  }
+                },
+              ),
+          ),
+           Expanded(
+               child: IconButton(
+                 tooltip: 'Корзина',
+                 icon: const Icon(Icons.shopping_cart),
+                 onPressed: () {
+                   if (cart == true) {
+                     Navigator.push(
+                       context,
+                       MaterialPageRoute(
+                         builder: (context) =>
+                         const Cart(
+                         ),
+                       ),
+                     );
+                   }
+                 },
+               ),
+           ),
+           Expanded(
+               child: IconButton(
+                 tooltip: 'История покупок',
+                 icon: const Icon(Icons.history),
+                 onPressed: () {
+                   if (historyPay == true) {
+                     Navigator.push(
+                       context,
+                       MaterialPageRoute(
+                         builder: (context) =>
+                         const HistoryPay(
+                         ),
+                       ),
+                     );
+                   }
+                 },
+               ),
+           ),
         ],
       ),
     );

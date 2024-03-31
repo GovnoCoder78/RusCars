@@ -17,36 +17,38 @@ class _AlertDialogSample extends State<AlertDialogSample> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Text(
-          'Подтверждение покупки',
-        ),
-      content: Column(
-        children: [
-          Image.network(
+        'Подтверждение покупки',
+      ),
+      content: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.network(
               carsList[widget.carId].images[0],
             ),
-           Container(
+            Container(
               alignment: Alignment.center,
               child: Text(
-                  carsList[widget.carId].name,
-                  style: const TextStyle(
-                    fontSize: 21,
-                  ),
-                  textAlign: TextAlign.center,
+                carsList[widget.carId].name,
+                style: const TextStyle(
+                  fontSize: 21,
                 ),
+                textAlign: TextAlign.center,
               ),
-          Container(
+            ),
+            Container(
               alignment: Alignment.center,
               child: Text(
-                  carsList[widget.carId].equipment,
-                  style: const TextStyle(
-                    fontSize: 21,
-                  ),
-                  textAlign: TextAlign.center,
+                carsList[widget.carId].equipment,
+                style: const TextStyle(
+                  fontSize: 21,
                 ),
+                textAlign: TextAlign.center,
               ),
-          Row(
+            ),
+            Row(
               children: [
-                ElevatedButton(
+                Expanded(
+                  child: ElevatedButton(
                     onPressed: carsList[widget.carId].isButtonDisabled ? null : () {
                       if (carsList[widget.carId].count < 1) {}
                       else if (carsList[widget.carId].count == 2) {
@@ -62,14 +64,18 @@ class _AlertDialogSample extends State<AlertDialogSample> {
                       }
                     },
                     child: const Text(
-                        '-',
-                      ),
+                      '-',
                     ),
-                Text(
+                  ),
+                ),
+                Expanded(
+                  child: Text(
                     carsList[widget.carId].count.toString(),
                     textAlign: TextAlign.center,
                   ),
-                ElevatedButton(
+                ),
+                Expanded(
+                  child: ElevatedButton(
                     onPressed: () {
                       setState(() {
                         carsList[widget.carId].count++;
@@ -77,31 +83,33 @@ class _AlertDialogSample extends State<AlertDialogSample> {
                       });
                     },
                     child: const Text(
-                        '+',
-                      ),
+                      '+',
                     ),
+                  ),
+                ),
               ],
             ),
-          Container(
+            Container(
               alignment: Alignment.center,
               child: Text(
-                  '${carsList[widget.carId].price * carsList[widget.carId].count} рублей',
-                  style: const TextStyle(
-                    fontSize: 21,
-                  ),
-                  textAlign: TextAlign.center,
+                '${carsList[widget.carId].price * carsList[widget.carId].count} рублей',
+                style: const TextStyle(
+                  fontSize: 21,
                 ),
+                textAlign: TextAlign.center,
               ),
-        ],
+            ),
+          ],
+        ),
       ),
       actions: [
         ElevatedButton(
           child: const Text(
-              'Закрыть',
-              style: TextStyle(
-                fontSize: 21,
-              ),
+            'Закрыть',
+            style: TextStyle(
+              fontSize: 21,
             ),
+          ),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -145,12 +153,12 @@ class _AlertDialogSample extends State<AlertDialogSample> {
             );
           },
           child: const Text(
-              'Купить',
-              style: TextStyle(
-                fontSize: 21,
-              ),
+            'Купить',
+            style: TextStyle(
+              fontSize: 21,
             ),
           ),
+        ),
       ],
     );
   }

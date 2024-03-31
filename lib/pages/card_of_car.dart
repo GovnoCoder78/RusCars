@@ -27,16 +27,9 @@ class _CardOfCar extends State<CardOfCar> {
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
-      body: Expanded(
-        child: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (BuildContext context, int index) {
-            return ListViewSampleForCardOfCar(
-              carId: id,
-              update: widget.update,
-            );
-          },
-        ),
+      body: ListViewSampleForCardOfCar(
+        carId: id,
+        update: widget.update,
       ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: true,

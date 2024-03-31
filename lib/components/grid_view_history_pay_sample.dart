@@ -37,49 +37,60 @@ class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
             color: Colors.black12,
             child:Column(
               children: [
-                Image.network(
+                Expanded(
+                  flex: 3,
+                  child: Image.network(
                     historyPayCars[carId].images[0],
                   ),
-                 Container(
+                ),
+                Expanded(
+                  child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                        historyPayCars[carId].name,
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
+                      historyPayCars[carId].name,
+                      style: const TextStyle(
+                        fontSize: 21,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                Container(
+                  ),
+                ),
+                Expanded(
+                  child: Container(
                     alignment: Alignment.center,
                     child:  Text(
-                        historyPayCars[carId].equipment,
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
+                      historyPayCars[carId].equipment,
+                      style: const TextStyle(
+                        fontSize: 21,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                Container(
+                  ),
+                ),
+                Expanded(
+                  child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                        'В количестве ${historyPayCars[carId].count} штук',
-                        style: const TextStyle(
-                          fontSize: 18,
-                        ),
-                        textAlign: TextAlign.center,
+                      'В количестве ${historyPayCars[carId].count} штук',
+                      style: const TextStyle(
+                        fontSize: 18,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                 Container(
+                  ),
+                ),
+                Expanded(
+                  child: Container(
                     alignment: Alignment.center,
                     child:  Text(
-                        '${historyPayCars[carId].price * historyPayCars[carId].count} рублей',
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
+                      '${historyPayCars[carId].price * historyPayCars[carId].count} рублей',
+                      style: const TextStyle(
+                        fontSize: 21,
                       ),
+                      textAlign: TextAlign.center,
                     ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -37,71 +37,87 @@ class _GridViewFavoriteSample extends State<GridViewFavoriteSample> {
             color: Colors.black12,
             child:Column(
               children: [
-                Image.network(
+                Expanded(
+                  flex: 3,
+                  child: Image.network(
                     favoriteCars[carId].images[0],
                   ),
-                Container(
+                ),
+                Expanded(
+                  child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                        favoriteCars[carId].name,
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
+                      favoriteCars[carId].name,
+                      style: const TextStyle(
+                        fontSize: 21,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                        favoriteCars[carId].equipment,
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                 Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                        '${favoriteCars[carId].price} рублей',
-                        style: const TextStyle(
-                          fontSize: 21,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                Row(
-                    children: [
-                      IconButton(
-                            tooltip: 'Избранное',
-                            icon: const Icon(Icons.favorite),
-                            selectedIcon: const Icon(Icons.favorite),
-                            isSelected: carsList[carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id].statusFavoriteSelected,
-                            color: carsList[carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id].colorFavoriteButton,
-                            onPressed: () {
-                              setState(() {
-                                var id = carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id;
-                                carsList[id].statusFavoriteSelected = false;
-                                carsList[id].colorFavoriteButton = Colors.black;
-                                favoriteCars.removeWhere((element) => element.id == carId);
-                                widget.update();
-                                var counter = 0;
-                                while (counter < favoriteCars.length) {
-                                  favoriteCars[counter].id = counter;
-                                  counter++;
-                                }
-                              });
-                            }
-                        ),
-                      ElevatedButtonBuySample(
-                          carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
-                        ),
-                      IconButtonCart(
-                          carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
-                          update: widget.update,
-                        ),
-                    ],
                   ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      favoriteCars[carId].equipment,
+                      style: const TextStyle(
+                        fontSize: 21,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${favoriteCars[carId].price} рублей',
+                      style: const TextStyle(
+                        fontSize: 21,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: IconButton(
+                          tooltip: 'Избранное',
+                          icon: const Icon(Icons.favorite),
+                          selectedIcon: const Icon(Icons.favorite),
+                          isSelected: carsList[carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id].statusFavoriteSelected,
+                          color: carsList[carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id].colorFavoriteButton,
+                          onPressed: () {
+                            setState(() {
+                              var id = carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id;
+                              carsList[id].statusFavoriteSelected = false;
+                              carsList[id].colorFavoriteButton = Colors.black;
+                              favoriteCars.removeWhere((element) => element.id == carId);
+                              widget.update();
+                              var counter = 0;
+                              while (counter < favoriteCars.length) {
+                                favoriteCars[counter].id = counter;
+                                counter++;
+                              }
+                            });
+                          }
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: ElevatedButtonBuySample(
+                        carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
+                      ),
+                    ),
+                    Expanded(
+                      child: IconButtonCart(
+                        carId: carsList.firstWhere((element) => element.name == favoriteCars[carId].name).id,
+                        update: widget.update,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
