@@ -52,7 +52,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 200,
+            height: 100,
             child: ListViewSampleForDescription(
               id: carId,
             ),
