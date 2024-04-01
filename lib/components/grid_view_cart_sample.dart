@@ -44,7 +44,8 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                     carsInCart[carId].images[0],
                   ),
                 ),
-                Container(
+                Expanded(
+                  child: Container(
                     alignment: Alignment.center,
                     child: Text(
                       carsInCart[carId].name,
@@ -55,6 +56,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
+                ),
                 Expanded(
                   child: Container(
                     alignment: Alignment.center,
