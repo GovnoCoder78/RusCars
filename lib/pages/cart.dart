@@ -36,7 +36,6 @@ class _Cart extends State<Cart> {
       ),
       body: Container(
         alignment: Alignment.center,
-        color: Colors.black26,
         child: Column(
           children: [
             Expanded(
