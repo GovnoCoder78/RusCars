@@ -12,9 +12,7 @@ class GridViewHistoryPaySample extends StatefulWidget {
 }
 class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
   final int carId;
-
   _GridViewHistoryPaySample(this.carId);
-
   @override
   Widget build(BuildContext context) {
     return Container(

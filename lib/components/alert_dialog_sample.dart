@@ -5,13 +5,10 @@ import '../pages/history_pay.dart';
 
 class AlertDialogSample extends StatefulWidget {
   final int carId;
-
   const AlertDialogSample({super.key, required this.carId});
-
   @override
   _AlertDialogSample createState() => _AlertDialogSample();
 }
-
 class _AlertDialogSample extends State<AlertDialogSample> {
   @override
   Widget build(BuildContext context) {

@@ -7,16 +7,16 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:rus_car/model/youtube.dart';
 import 'icon_button_cart.dart';
 
-class ListViewSampleForCardOfCar extends StatefulWidget {
+class SingleChildScrollViewForCardOfCartSample extends StatefulWidget {
   final int carId;
   final VoidCallback update;
-  const ListViewSampleForCardOfCar({super.key, required this.carId, required this.update});
+  const SingleChildScrollViewForCardOfCartSample({super.key, required this.carId, required this.update});
   @override
-  State<ListViewSampleForCardOfCar> createState() => _ListViewSampleForCardOfCarState(carId);
+  State<SingleChildScrollViewForCardOfCartSample> createState() => _SingleChildScrollViewForCardOfCartSample(carId);
 }
-class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar> {
+class _SingleChildScrollViewForCardOfCartSample extends State<SingleChildScrollViewForCardOfCartSample> {
   final int carId;
-  _ListViewSampleForCardOfCarState(this.carId);
+  _SingleChildScrollViewForCardOfCartSample(this.carId);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -53,7 +53,7 @@ class _ListViewSampleForCardOfCarState extends State<ListViewSampleForCardOfCar>
           ),
           SizedBox(
             height: 100,
-            child: ListViewSampleForDescription(
+            child: SingleChildScrollViewForDescriptionSample(
               id: carId,
             ),
           ),

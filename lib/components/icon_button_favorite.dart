@@ -11,9 +11,7 @@ class IconButtonFavorite extends StatefulWidget {
 }
 class _IconButtonFavorite extends State<IconButtonFavorite> {
   final int carId;
-
   _IconButtonFavorite(this.carId);
-
   @override
   Widget build(BuildContext context) {
     return IconButton(

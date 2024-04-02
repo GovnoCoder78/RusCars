@@ -5,7 +5,6 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 class Video extends StatelessWidget {
   final int id;
   const Video({Key? key, required this.id}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final _controller = YoutubePlayerController();

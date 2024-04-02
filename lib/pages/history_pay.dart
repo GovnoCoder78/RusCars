@@ -9,41 +9,40 @@ class HistoryPay extends StatefulWidget {
   State<HistoryPay> createState() => _HistoryPay();
 }
 class _HistoryPay extends State<HistoryPay> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-              "История покупок",
-              style: TextStyle(
-                fontSize: 30,
-              ),
-            ),
+          "История покупок",
+          style: TextStyle(
+            fontSize: 30,
+          ),
+        ),
         backgroundColor: Colors.grey,
         centerTitle: true,
       ),
       body:
-          GridView.builder(
-            padding: const EdgeInsets.all(5),
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 0.55,
-                crossAxisSpacing: 5,
-                mainAxisSpacing: 5),
-            itemCount: historyPayCars.length,
-            itemBuilder: (BuildContext context, index) {
-              return GridViewHistoryPaySample(
-                carId: historyPayCars[index].id,
-                update: update,
-              );
-            },
-          ),
+      GridView.builder(
+        padding: const EdgeInsets.all(5),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 0.55,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5),
+        itemCount: historyPayCars.length,
+        itemBuilder: (BuildContext context, index) {
+          return GridViewHistoryPaySample(
+            carId: historyPayCars[index].id,
+            update: update,
+          );
+        },
+      ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: true,
         favorite: true,
         cart: true,
-        historyPay: false,
+        personalAccount: true,
       ),
     );
   }

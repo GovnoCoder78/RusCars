@@ -6,13 +6,11 @@ import '../model/cars.dart';
 class GridViewCartSample extends StatefulWidget {
   final int carId;
   final VoidCallback updateSum;
-
-  const GridViewCartSample({super.key, required this.carId, required this.updateSum});
-
+  const GridViewCartSample(
+      {super.key, required this.carId, required this.updateSum});
   @override
   State<GridViewCartSample> createState() => _GridViewCartSample(carId);
 }
-
 class _GridViewCartSample extends State<GridViewCartSample> {
   final int carId;
   _GridViewCartSample(this.carId);

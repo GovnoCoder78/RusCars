@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/model/cars.dart';
 
-class ListViewSampleForDescription extends StatelessWidget {
+class SingleChildScrollViewForDescriptionSample extends StatelessWidget {
   final int id;
-  const ListViewSampleForDescription({super.key, required this.id});
+  const SingleChildScrollViewForDescriptionSample({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {

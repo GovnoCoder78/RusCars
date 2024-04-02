@@ -11,9 +11,7 @@ class IconButtonCart extends StatefulWidget {
 }
 class _IconButtonCart extends State<IconButtonCart> {
   final int carId;
-
   _IconButtonCart(this.carId);
-
   @override
   Widget build(BuildContext context) {
     return IconButton(

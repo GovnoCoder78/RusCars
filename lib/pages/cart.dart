@@ -9,11 +9,9 @@ import '../model/cars.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
-
   @override
   State<Cart> createState() => _Cart();
 }
-
 class _Cart extends State<Cart> {
   int sum = 0;
   @override
@@ -126,7 +124,7 @@ class _Cart extends State<Cart> {
         homePage: true,
         favorite: true,
         cart: false,
-        historyPay: true,
+        personalAccount: true,
       ),
     );
   }

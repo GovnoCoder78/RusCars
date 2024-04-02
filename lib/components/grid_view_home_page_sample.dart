@@ -5,19 +5,16 @@ import 'package:rus_car/pages/card_of_car.dart';
 import 'icon_button_cart.dart';
 import 'icon_button_favorite.dart';
 
-class GridViewSample extends StatefulWidget {
+class GridViewHomePageSample extends StatefulWidget {
   final int carId;
   final VoidCallback update;
-  const GridViewSample({super.key, required this.carId, required this.update});
+  const GridViewHomePageSample({super.key, required this.carId, required this.update});
   @override
-  State<GridViewSample> createState() => _GridViewSample(carId);
+  State<GridViewHomePageSample> createState() => _GridViewHomePageSample(carId);
 }
-
-class _GridViewSample extends State<GridViewSample> {
+class _GridViewHomePageSample extends State<GridViewHomePageSample> {
   final int carId;
-
-  _GridViewSample(this.carId);
-
+  _GridViewHomePageSample(this.carId);
   @override
   Widget build(BuildContext context) {
     return Card(

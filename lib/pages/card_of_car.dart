@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
-import 'package:rus_car/components/list_view_sample_for_card_of_car.dart';
+import 'package:rus_car/components/single_child_scroll_view_for_description_sample.dart';
 import 'package:rus_car/model/cars.dart';
 
 class CardOfCar extends StatefulWidget {
@@ -13,7 +13,6 @@ class CardOfCar extends StatefulWidget {
 class _CardOfCar extends State<CardOfCar> {
   final int id;
   _CardOfCar(this.id);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,7 @@ class _CardOfCar extends State<CardOfCar> {
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
-      body: ListViewSampleForCardOfCar(
+      body: SingleChildScrollViewForCardOfCartSample(
         carId: id,
         update: widget.update,
       ),
@@ -35,7 +34,7 @@ class _CardOfCar extends State<CardOfCar> {
         homePage: true,
         favorite: true,
         cart: true,
-        historyPay: true,
+        personalAccount: true,
       ),
     );
   }
