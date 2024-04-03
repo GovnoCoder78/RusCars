@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
-import 'package:rus_car/components/single_child_scroll_view_for_description_sample.dart';
+import 'package:rus_car/components/single_child_scroll_view_for_card_of_car_sample.dart';
 import 'package:rus_car/model/cars.dart';
 
 class CardOfCar extends StatefulWidget {
