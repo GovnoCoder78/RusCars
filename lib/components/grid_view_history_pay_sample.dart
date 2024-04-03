@@ -63,6 +63,7 @@ class _GridViewHistoryPaySample extends State<GridViewHistoryPaySample> {
                         fontSize: 21,
                       ),
                       textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),

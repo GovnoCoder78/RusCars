@@ -64,6 +64,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
                         fontSize: 21,
                       ),
                       textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),

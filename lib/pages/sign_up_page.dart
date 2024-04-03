@@ -45,7 +45,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
             Expanded(
-              flex: 6,
+              flex: 8,
               child: ListView.builder(
                 itemCount: textSignUp.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -54,7 +54,8 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
             Expanded(
-              child: TextField(
+              flex: 2,
+              child: TextFormField(
                 decoration: const InputDecoration(
                   labelText: " Номер телефона",
                 ),
