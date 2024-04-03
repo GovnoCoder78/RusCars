@@ -40,8 +40,7 @@ class Login extends StatelessWidget {
               flex: 1,
               child:  ListView.builder(
                 itemCount: textLogin.length,
-                itemBuilder: (BuildContext context, int index)
-                {
+                itemBuilder: (BuildContext context, int index) {
                   return TextFormFieldSample(
                     txt: textLogin[index],
                   );

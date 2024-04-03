@@ -55,6 +55,13 @@ class _PersonalAccount extends State<PersonalAccount> {
               fontSize: 30,
             ),
           ),
+          Text(
+            'Номер телефона: ${personalDataUser[0].phoneNumber}',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 30,
+            ),
+          ),
           ElevatedButton(
             onPressed: () {
               Navigator.push(

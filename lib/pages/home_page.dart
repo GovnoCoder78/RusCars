@@ -22,20 +22,36 @@ class _HomePage extends State<HomePage> {
         backgroundColor: Colors.grey,
         centerTitle: true,
       ),
-      body: GridView.builder(
-        padding: const EdgeInsets.all(5),
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: 0.6,
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5),
-        itemCount: carsList.length,
-        itemBuilder: (BuildContext context, index) {
-          return GridViewHomePageSample(
-            carId: carsList[index].id,
-            update: update,
-          );
-        },
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(5),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Поиск',
+              ),
+            ),
+          ),
+          Expanded(
+            child:
+            GridView.builder(
+              padding: const EdgeInsets.all(5),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                  childAspectRatio: 0.6,
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5),
+              itemCount: carsList.length,
+              itemBuilder: (BuildContext context, index) {
+                return GridViewHomePageSample(
+                  carId: carsList[index].id,
+                  update: update,
+                );
+              },
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: const BottomAppBarSample(
         homePage: false,

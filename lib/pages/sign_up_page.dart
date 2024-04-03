@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rus_car/pages/login_page.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import '../components/text_form_field_sample.dart';
@@ -50,6 +51,17 @@ class _SignUpState extends State<SignUp> {
                 itemBuilder: (BuildContext context, int index) {
                   return TextFormFieldSample(txt: textSignUp[index]);
                 },
+              ),
+            ),
+            Expanded(
+              child: TextField(
+                decoration: const InputDecoration(
+                  labelText: " Номер телефона",
+                ),
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ], // Only numbers can be entered
               ),
             ),
             Expanded(
