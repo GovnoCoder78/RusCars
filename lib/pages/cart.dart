@@ -37,6 +37,18 @@ class _Cart extends State<Cart> {
         child: Column(
           children: [
             Expanded(
+              flex: 2,
+              child: ListView.builder(
+                itemCount: carsInCart.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return GridViewCartSample(
+                      carId: carsInCart[index].id,
+                      updateSum: updateSum,
+                  );
+                },
+              ),
+            ),
+            Expanded(
               child: GridView.builder(
                 padding: const EdgeInsets.all(5),
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(

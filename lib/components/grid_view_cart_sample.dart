@@ -16,9 +16,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
   _GridViewCartSample(this.carId);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Card(
+    return Card(
         clipBehavior: Clip.hardEdge,
         child: InkWell(
           onTap: () {
@@ -34,7 +32,7 @@ class _GridViewCartSample extends State<GridViewCartSample> {
           },
           child: Container(
             color: Colors.black12,
-            child:Column(
+            child: Column(
               children: [
                 Expanded(
                   flex: 3,
@@ -154,7 +152,6 @@ class _GridViewCartSample extends State<GridViewCartSample> {
             ),
           ),
         ),
-      ),
     );
   }
 }
