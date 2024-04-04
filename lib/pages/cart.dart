@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rus_car/components/bottom_app_bar_sample.dart';
-import 'package:rus_car/components/grid_view_cart_sample.dart';
+import 'package:rus_car/components/list_view_cart_sample.dart';
 import 'package:rus_car/model/cart_list.dart';
 import 'package:rus_car/model/history_pay_list.dart';
 import 'package:rus_car/model/sum.dart';
@@ -40,9 +40,9 @@ class _Cart extends State<Cart> {
               child: ListView.builder(
                 itemCount: carsInCart.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return GridViewCartSample(
-                      carId: carsInCart[index].id,
-                      updateSum: updateSum,
+                  return ListViewCartSample(
+                    carId: carsInCart[index].id,
+                    updateSum: updateSum,
                   );
                 },
               ),

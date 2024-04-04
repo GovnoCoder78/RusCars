@@ -119,7 +119,7 @@ class _SignUpState extends State<SignUp> {
                   child: const Text(
                     "Зарегистрироваться",
                     style: TextStyle(
-                      fontSize: 37,
+                      fontSize: 30,
                       color: Colors.deepPurpleAccent,
                     ),
                   ),
