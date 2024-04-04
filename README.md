@@ -8,17 +8,13 @@
 
 ![](https://github.com/SergioCode24/RussianCarsLosev/blob/main/login.gif)
 
-## Главная страница
+## Страницы главная, избранное и карточка машины
 
-![](https://github.com/SergioCode24/RussianCarsLosev/blob/main/home_page.gif)
+![](https://github.com/SergioCode24/RussianCarsLosev/blob/main/home_favorite_card.gif)
 
-## Карточка машины
+## Страницы корзина, история покупок и личный кабинет
 
-![](https://github.com/SergioCode24/RussianCarsLosev/blob/main/card_of_car.gif)
-
-## Страницы избранное, корзина и история покупок
-
-![](https://github.com/SergioCode24/RussianCarsLosev/blob/main/favorite_page_cart_page_history_page.gif)
+![](https://github.com/SergioCode24/RussianCarsLosev/blob/main/cart_history_personal_account.gif)
 
 ## Модальное окно с покупкой
 
